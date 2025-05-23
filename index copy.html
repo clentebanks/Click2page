@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click2Page – Turn Google Sheets into Websites</title>
+  <meta name="description" content="Clic2Page is a smart Bootstrap web template that connects to Google Sheets in one click. Instantly create a CRM to edit and manage your website content with zero coding.">
+  <meta name="keywords" content="Clic2Page, Google Sheets website, no-code template, Bootstrap editable site, CRM website template, one-click sheet integration, easy content management">
+  <meta name="author" content="PIMATECNO">
+
+  <!-- Open Graph / Facebook -->
+<meta property="og:title" content="Clic2Page – One-Click Editable Web Template Powered by Google Sheets">
+<meta property="og:description" content="Create a connected Google Sheet in one click to manage your website like a CRM. Perfect for non-coders and business owners.">
+<meta property="og:image" content="https://yourdomain.com/og-image.jpg"> <!-- Replace with your real image URL -->
+<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clic2Page">
+
+<!-- Twitter Meta -->
+<meta name="twitter:title" content="Clic2Page – Editable Website Template Powered by Google Sheets">
+<meta name="twitter:description" content="Edit your website with ease using a connected Google Sheet. One-click CRM-style control.">
+<meta name="twitter:image" content="https://yourdomain.com/twitter-image.jpg"> <!-- Replace -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yourhandle"> <!-- Optional: replace with your Twitter -->
+
+<!-- Favicon -->
+<link rel="icon" href="/assets/faviconcirculo.png" type="image/x-icon">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://yourdomain.com">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+  --primary-color: #00ABE4; /* Bright blue */
+  --secondary-color: #E9F1FA; /* Light blue */
+  --white-color: #FFFFFF; /* White */
+  --dark-blue: #01257D; /* Intense navy blue */
+  --electric-blue: #00FFFF; /* Electric blue */
+  --cardinal-green: #0C1A1A; /* Cardinal green */
+  --light-teal: #6ACFC7; /* Light teal */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--secondary-color); /* Light blue */
+}
+
+.hero {
+  background: var(--secondary-color); /* Light blue */
+  padding: 100px 0;
+  text-align: center;
+}
+
+.btn-primary, .btn-success {
+  background-color: var(--primary-color); /* Bright blue */
+  border-color: var(--primary-color); /* Bright blue */
+}
+
+.btn-primary:hover, .btn-success:hover {
+  background-color: var(--dark-blue); /* Dark navy blue */
+  border-color: var(--dark-blue); /* Dark navy blue */
+}
+
+.features i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--primary-color); /* Bright blue */
+}
+
+footer {
+  background-color: var(--primary-color); /* Bright blue */
+  color: var(--white-color); /* White */
+}
+
+footer a {
+  color: var(--white-color); /* White */
+  text-decoration: underline;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+
+.hero p.lead {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.features h5, .features p {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.template-preview img {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.template-preview img:hover {
+  transform: scale(1.03);
+}
+
+    body { font-family: 'Segoe UI', sans-serif; background-color: var(--secondary-color); }
+    .hero { background: var(--secondary-color); padding: 100px 0; text-align: center; }
+    .btn-primary, .btn-success { background-color: var(--primary-color); border-color: var(--primary-color); }
+    .btn-primary:hover, .btn-success:hover { background-color: #0056b3; border-color: #004f9a; }
+    .features i { font-size: 2rem; margin-bottom: 10px; color: var(--primary-color); }
+    .template-preview img { width: 100%; border-radius: 12px; }
+    footer { background-color: var(--primary-color); color: white; }
+    footer a { color: white; text-decoration: underline; }
+    .hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+.hero p.lead {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.features h5, .features p {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.template-preview img {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.template-preview img:hover {
+  transform: scale(1.03);
+}
+
+/*feature seccion*/
+.text-primary-color {
+  color: var(--primary-color);
+}
+
+.text-dark-blue {
+  color: var(--dark-blue);
+}
+
+.feature-card {
+  background-color: var(--white-color);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  background-color: var(--light-teal);
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 171, 228, 0.25);
+}
+/*How It Works Section*/
+.step-card {
+  background-color: var(--secondary-color);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+}
+
+.step-card:hover {
+  background-color: var(--light-teal);
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 171, 228, 0.2);
+}
+/*Template Gallery Preview*/
+.template-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.5rem;
+  background-color: var(--white-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.template-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 171, 228, 0.25);
+  background-color: var(--light-teal);
+}
+/*Why Click2Page Section*/
+.feature-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 171, 228, 0.3);
+}
+/*Pricing Section*/
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 171, 228, 0.3);
+}
+
+.highlight-card {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: 3px solid var(--electric-blue);
+}
+
+/*Video Walkthrough Section*/
+
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero position-relative text-white" style="background: url('/assets/laptop-2620118_1280.jpg') no-repeat center center/cover; padding: 100px 0;">
+  <!-- Overlay -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1;"></div>
+
+  <!-- Content -->
+  <div class="container position-relative" style="z-index: 2;">
+    <h2 class="display-4 fw-bold">Click2Page</h2>
+    <p class="lead">
+      Clic2Page is a smart, responsive web template built with Bootstrap, HTML, CSS, and JavaScript. With just one click, generate a connected Google Sheet to manage and edit your website content in real time—without touching a single line of code. Ideal for entrepreneurs, freelancers, and small business owners.
+</p>
+    </p>
+    <a href="/Guardar_descargar_plaantilla.html" class="btn btn-primary btn-lg">Try It Free</a>
+    <p class="mt-3"><a href="/test_generate.html" class="text-white">See Examples ↓</a></p>
+  </div>
+</section>
+
+
+<!--azul claro (#E9F1FA), azul brillante (#00ABE4), blanco (#FFFFFF)
+******azul marino intenso (#01257D), azul eléctrico (#00FFFF)
+******verde cardenal (#0C1A1A), verde azulado claro (#6ACFC7)
+-->
+<!-- Features Section -->
+<section class="py-5" style="background-color: var(--secondary-color);">
+  <div class="container">
+    <h1 class="text-center mb-5 text-dark-blue">Turn Your Website Into a No-Code CRM with One Click.</h1>
+    <div class="row text-center features">
+      <div class="col-md-4">
+        <div class="feature-card p-4">
+          <i class="bi bi-rocket display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">Instant Page Setup</h5>
+          <p>Kickstart your site with a pre-filled Google Sheet — no copy-paste, no hassle.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card p-4">
+          <i class="bi bi-magic display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">AI-Powered Content</h5>
+          <p>Get headlines, call-to-actions, and visuals auto-generated in seconds.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card p-4">
+          <i class="bi bi-phone display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">Mobile-Optimized Design</h5>
+          <p>Built for speed and high conversions on any device, right from the start.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- How It Works Section -->
+<section class="py-5" style="background-color: var(--white-color);">
+  <div class="container">
+    <h2 class="text-center mb-5 text-dark-blue">How It Works in 3 Easy Steps</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="step-card p-4">
+          <i class="bi bi-layout-text-window display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">1. Choose a Template</h5>
+          <p>Select a starter layout or instantly generate one with AI.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card p-4">
+          <i class="bi bi-google display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">2. Connect Your Sheet</h5>
+          <p>Link your Google Sheet — or auto-generate one with sample data.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card p-4">
+          <i class="bi bi-upload display-4 mb-3 text-primary-color"></i>
+          <h5 class="fw-bold text-dark-blue">3. Click & Publish</h5>
+          <p>Your site goes live in seconds — no code, no stress.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Template Gallery Preview -->
+<section class="py-5" id="examples" style="background-color: var(--secondary-color);">
+  <div class="container">
+    <h2 class="text-center mb-5 text-dark-blue">Ready-to-Use Website Templates</h2>
+    <div class="row g-4 template-preview">
+      <div class="col-md-4">
+        <div class="template-card">
+          <img src="https://via.placeholder.com/350x200" alt="Restaurant Template" class="img-fluid rounded">
+          <h6 class="mt-3 text-center text-dark-blue">Restaurant</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="template-card">
+          <img src="https://via.placeholder.com/350x200" alt="Freelancer Template" class="img-fluid rounded">
+          <h6 class="mt-3 text-center text-dark-blue">Freelancer</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="template-card">
+          <img src="https://via.placeholder.com/350x200" alt="Real Estate Template" class="img-fluid rounded">
+          <h6 class="mt-3 text-center text-dark-blue">Real Estate</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Click2Page Section -->
+<section class="py-5" style="background-color: var(--secondary-color);">
+  <div class="container">
+    <h2 class="text-center mb-5 text-dark-blue">Why Choose Click2Page?</h2>
+    <div class="row justify-content-center">
+      <!-- Click2Page Features -->
+      <div class="col-md-5 mb-4 mb-md-0">
+        <div class="feature-box shadow p-4 rounded text-white" style="background-color: var(--primary-color);">
+          <h4 class="mb-3"><i class="bi bi-lightning-charge-fill me-2"></i>Click2Page</h4>
+          <ul class="list-unstyled lh-lg">
+            <li><i class="bi bi-check-circle-fill me-2 text-white"></i>Launch in under 2 minutes</li>
+            <li><i class="bi bi-check-circle-fill me-2 text-white"></i>Edit via Google Sheets — no coding</li>
+            <li><i class="bi bi-check-circle-fill me-2 text-white"></i>AI-powered content generator</li>
+            <li><i class="bi bi-check-circle-fill me-2 text-white"></i>One-click setup — no login</li>
+            <li><i class="bi bi-check-circle-fill me-2 text-white"></i>One-time affordable pricing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Traditional Builders -->
+      <div class="col-md-5">
+        <div class="feature-box shadow p-4 rounded text-dark" style="background-color: #ffffff;">
+          <h4 class="mb-3 text-muted"><i class="bi bi-tools me-2"></i>Traditional Site Builders</h4>
+          <ul class="list-unstyled lh-lg text-muted">
+            <li><i class="bi bi-x-circle-fill me-2 text-danger"></i>Clunky drag & drop interfaces</li>
+            <li><i class="bi bi-x-circle-fill me-2 text-danger"></i>Accounts, logins & hosting required</li>
+            <li><i class="bi bi-x-circle-fill me-2 text-danger"></i>High monthly fees</li>
+            <li><i class="bi bi-x-circle-fill me-2 text-danger"></i>Hard for non-tech users</li>
+            <li><i class="bi bi-x-circle-fill me-2 text-danger"></i>Little to no AI support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Demo / Video Walkthrough Section -->
+<section class="py-5 text-center" style="background: linear-gradient(135deg, #e0f2ff, #f0f8ff);">
+  <div class="container">
+    <h2 class="mb-3 text-dark-blue fw-bold">🚀 See Click2Page in Action</h2>
+    <p class="lead text-muted mb-4">Watch how you can launch a modern website in 60 seconds — powered by Google Sheets and AI, no code needed.</p>
+    
+    <div class="ratio ratio-16x9 mb-4 shadow rounded-4 overflow-hidden" style="max-width: 900px; margin: 0 auto;">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Click2Page Demo" allowfullscreen></iframe>
+    </div>
+
+    <a href="test_generate.html" class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-sm">
+      🎯 Try Live Demo Now
+    </a>
+  </div>
+</section>
+
+
+
+<!-- Pricing Section -->
+<section class="py-5" style="background-color: var(--secondary-color);">
+  <div class="container">
+    <h2 class="text-center mb-5 text-dark-blue">Simple, Honest Pricing</h2>
+    <div class="row justify-content-center text-center g-4">
+
+      <!-- Starter Plan -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow border-0 pricing-card">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Starter</h5>
+            <h2 class="text-primary">$0</h2>
+            <p class="text-muted">Free forever</p>
+            <ul class="list-unstyled my-4">
+              <li>✅ 1 site</li>
+              <li>✅ Click2Page branding</li>
+              <li>✅ 3 templates</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary">Start Free</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro Plan (Highlighted) -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0 pricing-card highlight-card">
+          <div class="card-body">
+            <h5 class="card-title text-white">Pro</h5>
+            <h2 class="text-white">$19</h2>
+            <p class="text-white-50">One-time payment</p>
+            <ul class="list-unstyled my-4 text-white">
+              <li>✅ Unlimited edits</li>
+              <li>✅ Remove branding</li>
+              <li>✅ All templates included</li>
+            </ul>
+            <a href="#" class="btn btn-light">Get Pro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Plan -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow border-0 pricing-card">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Business</h5>
+            <h2 class="text-primary">$9</h2>
+            <p class="text-muted">Per month</p>
+            <ul class="list-unstyled my-4">
+              <li>✅ Custom domain</li>
+              <li>✅ Analytics</li>
+              <li>✅ Priority support</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary">Subscribe</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Customer Logos Section -->
+<section class="py-5 bg-white">
+  <div class="container text-center">
+    <h2 class="mb-4">Trusted by Small Businesses Everywhere</h2>
+    <div class="row justify-content-center align-items-center g-4">
+      <div class="col-4 col-md-2">
+        <img src="https://via.placeholder.com/120x60?text=Logo+1" class="img-fluid" alt="Client Logo 1">
+      </div>
+      <div class="col-4 col-md-2">
+        <img src="https://via.placeholder.com/120x60?text=Logo+2" class="img-fluid" alt="Client Logo 2">
+      </div>
+      <div class="col-4 col-md-2">
+        <img src="https://via.placeholder.com/120x60?text=Logo+3" class="img-fluid" alt="Client Logo 3">
+      </div>
+      <div class="col-4 col-md-2">
+        <img src="https://via.placeholder.com/120x60?text=Logo+4" class="img-fluid" alt="Client Logo 4">
+      </div>
+      <div class="col-4 col-md-2">
+        <img src="https://via.placeholder.com/120x60?text=Logo+5" class="img-fluid" alt="Client Logo 5">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5" style="background-color: #f0f4ff;">
+  <div class="container">
+    <h2 class="text-center mb-5">What Our Users Are Saying</h2>
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"Click2Page saved me hours. My site was live in minutes!"</p>
+          <footer class="blockquote-footer">Ana M., Boutique Owner</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"Perfect for non-tech folks like me. It just works."</p>
+          <footer class="blockquote-footer">Luis T., Freelancer</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"The AI features blew my mind — instant landing pages!"</p>
+          <footer class="blockquote-footer">Sara G., Digital Marketer</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ Section -->
+<section class="py-5" style="background-color: #f0f4ff;">
+  <div class="container">
+    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq1-heading">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+            Do I need to know how to code?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Nope! Just fill out a Google Sheet and Click2Page builds your site for you.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq2-heading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            Can I use my own domain?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! The Business plan lets you connect a custom domain easily.
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq3-heading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            Is it mobile friendly?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutely. Every site is optimized for mobile and loads lightning-fast.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq4-heading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            How do updates work?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Just update your Google Sheet and the changes show up on your live site.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="text-center py-4">
+  <p class="mb-0">Click2Page © 2025 · <a href="#">Privacy</a> · <a href="#">Contact</a></p>
+  <p class="small">Made for small businesses with ❤️</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

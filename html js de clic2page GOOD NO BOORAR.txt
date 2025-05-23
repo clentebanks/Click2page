@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title id="title" data-content-id="title">Tu producto editable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Incluir JSZip y FileSaver.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      /* padding: 20px; */
+      text-align: center;
+    }
+    .btn-primary {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #hero{
+      background-color: aqua;
+    }
+
+  </style>
+</head>
+<body class="custom-body">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <img id="logo" src="https://placehold.co/50x50" alt="Logo" class="me-2" width="40">
+        <span id="tituloPrincipal">Nombre del Producto</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="py-5 text-white text-center" id="hero">
+    <div class="container">
+      <h1 class="display-4 fw-bold" id="heroTitulo">¡Haz tu contenido editable desde Google Sheets!</h1>
+      <p class="lead" id="descripcion">Este sitio demuestra cómo puedes editar el contenido desde una hoja de cálculo sin tocar el código.</p>
+      <a href="#ctaTitulo" class="btn btn-light btn-lg mt-3">Probar</a>
+    </div>
+  </header>
+
+  <!-- Características -->
+  <section class="py-5" id="caracteristicas">
+    <div class="container">
+      <h2 class="text-center mb-4">🚀 Características</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card p-3 shadow-sm border-0">
+            <h4 id="caracteristica1Titulo">Editable en tiempo real</h4>
+            <p id="caracteristica1Texto">Usa Google Sheets como tu CMS.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 shadow-sm border-0">
+            <h4 id="caracteristica2Titulo">Diseño responsivo</h4>
+            <p id="caracteristica2Texto">Funciona perfectamente en móviles.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 shadow-sm border-0">
+            <h4 id="caracteristica3Titulo">Sin backend</h4>
+            <p id="caracteristica3Texto">Todo funciona desde el navegador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="py-5 bg-light text-center" id="galeria">
+    <div class="container">
+      <h2 class="mb-4" id="galeriaTitulo">📸 Galería de Productos</h2>
+      <div class="row">
+        <div class="col-md-4"><img src="https://placehold.co/350x250" class="img-fluid mb-3" id="imagenProducto1"></div>
+        <div class="col-md-4"><img src="https://placehold.co/350x250" class="img-fluid mb-3" id="imagenProducto2"></div>
+        <div class="col-md-4"><img src="https://placehold.co/350x250" class="img-fluid mb-3" id="imagenProducto3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-5" id="testimonios">
+    <div class="container">
+      <h2 class="text-center mb-4" id="testimoniosTitulo">💬 Testimonios</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <blockquote class="blockquote text-center" id="testimonioBlock">
+            <p class="mb-0" id="testimonio1">“Este producto cambió mi vida.”</p>
+            <footer class="blockquote-footer" id="nombreTestimonio1">Juan Pérez</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-6">
+          <blockquote class="blockquote text-center" id="testimonioBlock2">
+            <p class="mb-0" id="testimonio2">“Excelente experiencia.”</p>
+            <footer class="blockquote-footer" id="nombreTestimonio2">Maria López</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-light text-center" id="cta">
+    <div class="container">
+      <h2 id="ctaTitulo">¿Listo para editar tu web?</h2>
+      <p id="ctaTexto">Haz clic para configurar tu contenido desde Google Sheets.</p>
+      <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#configPanel">🔧 Configurar contenido</a>
+    </div>
+  </section>
+
+  <!-- Config Panel -->
+  <div class="collapse" id="configPanel">
+    <div class="container py-4">
+      <div class="card card-body shadow-sm">
+        <p>
+          <a href="https://script.google.com/macros/s/AKfycbzKplY91TzhqZn2VH7j0mskekVg37b1NVXLXDwmDliyEydGnPGSuUwR2L_7352X1Rrf1A/exec" target="_blank">
+            🛠 Generador automático de Google Sheets
+          </a>
+        </p>
+        <p><strong>Paso 1:</strong> Publica tu Google Sheet como CSV.</p>
+        <p><strong>Paso 2:</strong> Copia el enlace generado en formato CSV.</p>
+        <input type="text" id="urlInput" class="form-control mb-3" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv">
+        <div class="d-flex gap-2">
+          <button onclick="guardarURL()" class="btn btn-success w-100">💾 Guardar URL</button>
+          <button onclick="borrarURL()" class="btn btn-danger w-100">❌ Borrar URL</button>
+        </div>
+        <button onclick="descargarHTML()" class="btn btn-warning mt-3">⬇️ Descargar plantilla con cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="mainFooter" class="text-center py-4">
+    <small id="footerTexto">Hecho con ❤️ usando Google Sheets como CMS</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script funcional -->
+  <script>
+
+async function cargarContenidoDesdeSheet() {
+      const sheetURL = localStorage.getItem("contenidoURL");
+      if (!sheetURL) return;
+
+      console.log("🌍 URL cargada desde localStorage:", sheetURL); // Verificar URL
+
+      try {
+        const finalURL = sheetURL.includes("?") ? `${sheetURL}&v=${Date.now()}` : `${sheetURL}?v=${Date.now()}`;
+        console.log("📝 URL final con versión:", finalURL); // Verificar URL final con parámetros
+
+        const response = await fetch(finalURL);
+        if (!response.ok) {
+          throw new Error("Error al cargar el CSV");
+        }
+
+        const csv = await response.text();
+        console.log("📄 Contenido CSV recibido:", csv); // Verificar contenido CSV
+
+        const filas = csv.split("\n").slice(1); // Excluir la primera fila de encabezado
+        const contenido = {};
+
+        // Recorrer cada fila para construir el objeto contenido
+        filas.forEach(linea => {
+          const [clave, ...valor] = linea.split(",");
+          if (clave && valor) {
+            contenido[clave.trim()] = valor.join(",").trim(); // Guardamos el valor de cada celda
+          }
+        });
+
+        console.log("🔧 Contenido procesado:", contenido);
+
+        // Aplicar contenido a los elementos del HTML
+       // Aplicar contenido a los elementos del HTML
+        for (const id in contenido) {
+        const el = document.getElementById(id);
+        if (el) {
+            const tag = el.tagName.toLowerCase();
+
+            if (tag === "img") {
+            // Si es una imagen <img>, cambiar el src
+            el.src = contenido[id];
+            } else if (el.style.backgroundImage || el.classList.contains("showcase-img")) {
+            // Si el elemento tiene backgroundImage inline o una clase que lo usa
+            el.style.backgroundImage = `url('${contenido[id]}')`;
+            } else {
+            // Para cualquier otro tipo de elemento, cambiar el texto
+            el.innerText = contenido[id];
+            }
+        }
+        }
+
+        // Aplicar colores si existen en el CSV
+        if (contenido.colorFondo) {
+          console.log("🎨 Aplicando colorFondo:", contenido.colorFondo);
+          document.body.style.backgroundColor = contenido.colorFondo;
+        }
+        if (contenido.colorCard) {
+        document.querySelectorAll(".card").forEach(card => {
+          card.style.backgroundColor = contenido.colorCard;
+        });
+}
+        if (contenido.colorTexto) {
+          document.body.style.color = contenido.colorTexto;
+        }
+
+        if (contenido.colorBoton) {
+          document.querySelectorAll("button").forEach(btn => {
+            btn.style.backgroundColor = contenido.colorBoton;
+          });
+        }
+
+        if (contenido.colorEncabezado) {
+          document.querySelector("header").style.backgroundColor = contenido.colorEncabezado;
+        }
+
+        if (contenido.colorNavbar) {
+          document.querySelector("nav").style.backgroundColor = contenido.colorNavbar;
+        }
+
+        // Cambiar color de fondo del blockquote si está definido
+        if (contenido.colorTestimonio) {
+          document.getElementById("testimonioBlock").style.backgroundColor = contenido.colorTestimonio;
+        }
+
+        // Cambiar color del texto del blockquote si está definido
+        if (contenido.colorTextoTestimonio) {
+          document.getElementById("testimonioBlock").style.color = contenido.colorTextoTestimonio;
+        }
+
+        // Cambiar color del nombre en el primer testimonio si está definido
+        if (contenido.colorNombreTestimonio1) {
+            document.getElementById("nombreTestimonio1").style.color = contenido.colorNombreTestimonio1;
+        }
+
+        // Cambiar color de fondo del segundo blockquote si está definido
+        if (contenido.colorTestimonio2) {
+          document.getElementById("testimonioBlock2").style.backgroundColor = contenido.colorTestimonio2;
+        }
+
+        // Cambiar color del texto del segundo blockquote si está definido
+        if (contenido.colorTextoTestimonio2) {
+          document.getElementById("testimonioBlock2").style.color = contenido.colorTextoTestimonio2;
+        }
+
+          // Cambiar color del nombre en el segundo testimonio si está definido
+        if (contenido.colorNombreTestimonio2) {
+            document.getElementById("nombreTestimonio2").style.color = contenido.colorNombreTestimonio2;
+        }
+
+        if (contenido.colorFooter) {
+          document.getElementById("mainFooter").style.backgroundColor = contenido.colorFooter;
+        }
+
+        if (contenido.colorTextoFooter) {
+          document.getElementById("mainFooter").style.color = contenido.colorTextoFooter;
+        }
+
+
+      } catch (e) {
+        console.error("❌ Error al cargar el contenido:", e);
+      }
+    }
+
+    function guardarURL() {
+      const url = document.getElementById("urlInput").value;
+      if (url) {
+        localStorage.setItem("contenidoURL", url);
+        alert("✅ URL guardada correctamente.");
+        cargarContenidoDesdeSheet();  // Recargar el contenido con la nueva URL
+      } else {
+        alert("⚠️ Por favor, ingresa una URL.");
+      }
+    }
+
+    function borrarURL() {
+      localStorage.removeItem("contenidoURL");
+      alert("✅ URL eliminada correctamente.");
+      location.reload(); // Recargar la página para borrar los cambios
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const url = localStorage.getItem("contenidoURL");
+      if (url) {
+        document.getElementById("urlInput").value = url;
+        cargarContenidoDesdeSheet();
+      }
+    });
+
+  async function descargarPlantillaCompleta() {
+  const zip = new JSZip();
+
+  // 1. Clonar el HTML actual y limpiar elementos
+  const doc = document.documentElement.cloneNode(true);
+  doc.querySelector('#configPanel')?.remove();
+  doc.querySelector('#cta')?.remove();
+  const htmlCompleto = "<!DOCTYPE html>\n" + doc.outerHTML;
+  zip.file("index.html", htmlCompleto);
+
+  // 2. Descargar y agregar TODOS los archivos CSS
+  const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+  for (const link of cssLinks) {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith("http")) {  // Evitar archivos externos
+      try {
+        const response = await fetch(href);
+        const text = await response.text();
+        zip.file(href, text); // Usa la ruta original para mantener carpetas
+      } catch (e) {
+        console.warn("No se pudo incluir el CSS:", href);
+      }
+    }
+  }
+
+  // 3. Descargar y agregar TODOS los scripts con src
+  const scriptTags = document.querySelectorAll('script[src]');
+  for (const script of scriptTags) {
+    const src = script.getAttribute('src');
+    if (src && !src.startsWith("http")) {
+      try {
+        const response = await fetch(src);
+        const text = await response.text();
+        zip.file(src, text);
+      } catch (e) {
+        console.warn("No se pudo incluir el JS:", src);
+      }
+    }
+  }
+
+  // 4. Descargar y agregar imágenes (solo las locales)
+  const images = document.querySelectorAll('img');
+  for (const img of images) {
+    const src = img.getAttribute('src');
+    if (src && !src.startsWith("http")) {
+      try {
+        const response = await fetch(src);
+        const blob = await response.blob();
+        zip.file(src, blob); // Usa la ruta original (ej: "images/logo.png")
+      } catch (e) {
+        console.warn("No se pudo incluir la imagen:", src);
+      }
+    }
+  }
+
+  // 5. Generar ZIP y descargar
+  zip.generateAsync({ type: "blob" }).then(function(content) {
+    saveAs(content, "plantilla.zip");
+  });
+}
+
+
+ </script>
+
+  
+</body>
+</html>
+

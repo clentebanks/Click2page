@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content/>
+  <meta name="author" content/>
+  <title id="title">Landing Page - Start Bootstrap Theme</title>
+  <!-- Favicon-->
+  <link id="favicon" rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <!-- Incluir JSZip y FileSaver.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navigation-->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a id="businessName" class="navbar-brand" href="#!">Start Bootstrap</a>
+      <a class="btn btn-primary" href="#signup">Sign Up</a>
+    </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead" id="mastheadbacgroundimg" style="background-image: url('assets/img/bg-masthead.jpg');"
+    no-repeat center center;>
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-xl-6">
+          <!--Scroll to the bottom to generate your Google Sheet!-->
+          <div class="text-center text-white">
+            <!-- Page heading-->
+            <h1 id="heroTittle" class="mb-5">
+              Generate more leads with a professional landing page!
+            </h1>
+            <!-- Signup form-->
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- * * SB Forms Contact Form * *-->
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- This form is pre-integrated with SB Forms.-->
+            <!-- To make this form functional, sign up at-->
+            <!-- https://startbootstrap.com/solution/contact-forms-->
+            <!-- to get an API token!-->
+
+            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+              <!-- Email address input-->
+              <div class="row">
+                <div class="col">
+                  <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address"
+                    data-sb-validations="required,email" />
+                  <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">
+                    Email Address is required.
+                  </div>
+                  <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">
+                    Email Address Email is not valid.
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <!-- Submit success message-->
+              <!---->
+              <!-- This is what your users will see when the form-->
+              <!-- has successfully submitted-->
+              <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                  <div class="fw-bolder">Form submission successful!</div>
+                  <p>To activate this form, sign up at</p>
+                  <a class="text-white"
+                    href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+              </div>
+              <!-- Submit error message-->
+              <!---->
+              <!-- This is what your users will see when there is-->
+              <!-- an error submitting the form-->
+              <div class="d-none" id="submitErrorMessage">
+                <div class="text-center text-danger mb-3">
+                  Error sending message!
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Icons Grid-->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="bi-window m-auto text-primary"></i>
+            </div>
+            <h3 id="caracteristic1Tittle">Fully Responsive</h3>
+            <p id="caracteristic1Texto" class="lead mb-0">
+              This theme will look great on any device, no matter the size!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="bi-layers m-auto text-primary"></i>
+            </div>
+            <h3 id="caracteristic2Tittle">Bootstrap 5 Ready</h3>
+            <p id="caracteristic2Text" class="lead mb-0">
+              Featuring the latest build of the new Bootstrap 5 framework!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="bi-terminal m-auto text-primary"></i>
+            </div>
+            <h3 id="caracteristic3Tittle">Easy to Use</h3>
+            <p id="caracteristic3Text" class="lead mb-0">
+              Ready to use with your own content, or customize the source
+              files!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Image Showcases-->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row g-0">
+        <div id="image1" class="col-lg-6 order-lg-2 text-white showcase-img"
+          style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2 id="tittleImg1">Fully Responsive Design</h2>
+          <p id="descriptionImg1" class="lead mb-0">
+            When you use a theme created by Start Bootstrap, you know that the
+            theme will look great on any device, whether it's a phone, tablet,
+            or desktop the page will behave responsively!
+          </p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div id="image2" class="col-lg-6 text-white showcase-img"
+          style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2 id="tittleImg2">Updated For Bootstrap 5</h2>
+          <p id="descriptionImg2" class="lead mb-0">
+            Newly improved, and full of great utility classes, Bootstrap 5 is
+            leading the way in mobile responsive web development! All of the
+            themes on Start Bootstrap are now using Bootstrap 5!
+          </p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div id="image3" class="col-lg-6 order-lg-2 text-white showcase-img"
+          style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2 id="tittleImg3">Easy to Use & Customize</h2>
+          <p id="descriptionImg3" class="lead mb-0">
+            Landing Page is just HTML and CSS with a splash of SCSS for users
+            who demand some deeper customization options. Out of the box, just
+            add your content and images, and your new landing page will be
+            ready to go!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials-->
+  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 id="testimonialsTittle" class="mb-5">What people are saying...</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img id="testimonials1Img" class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg"
+              alt="..." />
+            <h5 id="testimonials1Name">Margaret E.</h5>
+            <p id="testimonials1" class="font-weight-light mb-0">
+              "This is fantastic! Thanks so much guys!"
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img id="testimonials2Img" class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg"
+              alt="..." />
+            <h5 id="testimonials2Name">Fred S.</h5>
+            <p id="testimonials2" class="font-weight-light mb-0">
+              "Bootstrap is amazing. I've been using it to create lots of
+              super nice landing pages."
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img id="testimonials3Img" class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg"
+              alt="..." />
+            <h5 id="testimonials3Name">Sarah W.</h5>
+            <p id="testimonials3" class="font-weight-light mb-0">
+              "Thanks so much for making these free resources available to
+              us!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call to Action-->
+  <section class="call-to-action text-white text-center" id="signup">
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-xl-6">
+          <h2 id="actionTittle" class="mb-4">Ready to get started? Sign up
+            now!</h2>
+          <!-- Signup form-->
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- * * SB Forms Contact Form * *-->
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- This form is pre-integrated with SB Forms.-->
+          <!-- To make this form functional, sign up at-->
+          <!-- https://startbootstrap.com/solution/contact-forms-->
+          <!-- to get an API token!-->
+          <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+            <!-- Email address input-->
+            <div class="row">
+              <div class="col">
+                <input class="form-control form-control-lg" id="emailAddressBelow" type="email"
+                  placeholder="Email Address" data-sb-validations="required,email" />
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">
+                  Email Address is required.
+                </div>
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">
+                  Email Address Email is not valid.
+                </div>
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">
+                  Submit
+                </button>
+              </div>
+            </div>
+            <!-- Submit success message-->
+            <!---->
+            <!-- This is what your users will see when the form-->
+            <!-- has successfully submitted-->
+            <div class="d-none" id="submitSuccessMessage">
+              <div class="text-center mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+                <p>To activate this form, sign up at</p>
+                <a class="text-white"
+                  href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+              </div>
+            </div>
+            <!-- Submit error message-->
+            <!---->
+            <!-- This is what your users will see when there is-->
+            <!-- an error submitting the form-->
+            <div class="d-none" id="submitErrorMessage">
+              <div class="text-center text-danger mb-3">
+                Error sending message!
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Configure your content -->
+  <section class="py-5 bg-light text-center" id="cta">
+    <div class="container">
+      <div class="p-5 bg-white shadow rounded-4 border border-primary-subtle">
+        <h2 id="ctaTitulo" class="mb-3 fw-bold text-primary">
+          🎯 Ready to edit your website?
+        </h2>
+        <p id="ctaTexto" class="lead mb-4">
+          Configure your content directly from <strong>Google Sheets</strong>
+          – no coding required.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg px-4" data-bs-toggle="collapse" data-bs-target="#configPanel">
+          <i class="bi bi-sliders"></i> Configure Content
+        </a>
+      </div>
+    </div>
+  </section>
+  <section>
+    <!-- Config Panel -->
+    <div class="collapse" id="configPanel">
+      <div class="container py-4">
+        <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+          <h4 class="mb-4 text-primary"><i class="bi bi-gear-fill"></i>
+            Configuration Panel</h4>
+
+          <div class="mb-4">
+            <p class="mb-1"><strong>🔧 Auto-generate your Google
+                Sheet:</strong></p>
+            <a href="https://script.google.com/macros/s/AKfycbxUL-I7_DELQw11zvnvOAlOHlN2MnaI_Q_Endyms0Pvl5VeFWEbOw6e0TrQbWACRTF84w/exec"
+              target="_blank" class="btn btn-outline-primary">
+              🛠 Launch Auto-Generator
+            </a>
+          </div>
+
+          <div class="mb-4">
+            <p><strong>Step 1:</strong> Publish your Google Sheet as
+              <code>CSV</code>.
+            </p>
+            <p><strong>Step 2:</strong> Copy and paste the <span class="text-success">CSV URL</span> below:</p>
+            <p><strong>Step 3:</strong> After making changes to your Google
+              Sheet, <span class="text-primary">refresh
+                this
+                page</span> to see the updated content instantly.</p>
+            <input type="text" id="urlInput" class="form-control"
+              placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv" />
+          </div>
+
+          <div class="d-flex flex-column flex-md-row gap-3 mb-3">
+            <button onclick="guardarURL()" class="btn btn-success w-100">
+              💾 Save URL
+            </button>
+            <button onclick="borrarURL()" class="btn btn-outline-danger w-100">
+              ❌ Delete URL
+            </button>
+          </div>
+
+          <div class="text-center">
+            <button onclick="descargarPlantillaCompleta()" class="btn btn-warning px-4">
+              ⬇️ Download Template with Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer-->
+  <footer id="mainFooter" class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+          <ul class="list-inline mb-2">
+            <li id="mainFooterAbout" class="list-inline-item"><a href="#!">About</a></li>
+            <li class="list-inline-item">⋅</li>
+            <li id="mainFootercontact" class="list-inline-item"><a href="#!">Contact</a></li>
+            <li class="list-inline-item">⋅</li>
+            <li id="mainFooterTerms_use" class="list-inline-item"><a href="#!">Terms of Use</a></li>
+            <li class="list-inline-item">⋅</li>
+            <li id="mainFooterPrivacy" class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+          </ul>
+          <p id="mainFooterbusinessName" class="text-muted small mb-4 mb-lg-0">
+            &copy; Your Website 2023. All Rights Reserved.
+          </p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item me-4">
+              <a href="#!"><i class="bi-facebook fs-3"></i></a>
+            </li>
+            <li class="list-inline-item me-4">
+              <a href="#!"><i class="bi-twitter fs-3"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#!"><i class="bi-instagram fs-3"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <!-- Script funcional -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const csvUrl = urlParams.get("data");
+
+  if (csvUrl) {
+    fetch(csvUrl)
+      .then((response) => response.text())
+      .then((csv) => {
+        const filas = csv.split("\n");
+        const contenido = {};
+
+        filas.forEach((linea) => {
+          if (!linea.trim()) return; // Saltar líneas vacías
+          const [clave, ...valor] = linea.split(",");
+          if (clave && valor) {
+            contenido[clave.trim()] = valor.join(",").trim();
+          }
+        });
+
+        // Cambiar textos e imágenes
+        for (const key in contenido) {
+          const el = document.getElementById(key);
+          if (el) {
+            if (el.tagName === "IMG") {
+              el.src = contenido[key];
+            } else {
+              el.textContent = contenido[key];
+            }
+          }
+        }
+
+        // Aplicar colores con mapa centralizado
+        const cambiosColor = {
+          colorFondo: () => document.body.style.backgroundColor = contenido.colorFondo,
+          colorTexto: () => document.body.style.color = contenido.colorTexto,
+          colorCard: () => document.querySelectorAll(".card").forEach(el => el.style.backgroundColor = contenido.colorCard),
+          colorBoton: () => document.querySelectorAll("button").forEach(el => el.style.backgroundColor = contenido.colorBoton),
+          colorEncabezado: () => {
+            const header = document.querySelector("header");
+            if (header) header.style.backgroundColor = contenido.colorEncabezado;
+          },
+          colorNavbar: () => {
+            const nav = document.querySelector("nav");
+            if (nav) nav.style.backgroundColor = contenido.colorNavbar;
+          },
+          colorTestimonio: () => {
+            const el = document.getElementById("testimonioBlock");
+            if (el) el.style.backgroundColor = contenido.colorTestimonio;
+          },
+          colorTextoTestimonio: () => {
+            const el = document.getElementById("testimonioBlock");
+            if (el) el.style.color = contenido.colorTextoTestimonio;
+          },
+          colorNombreTestimonio1: () => {
+            const el = document.getElementById("nombreTestimonio1");
+            if (el) el.style.color = contenido.colorNombreTestimonio1;
+          },
+          colorTestimonio2: () => {
+            const el = document.getElementById("testimonioBlock2");
+            if (el) el.style.backgroundColor = contenido.colorTestimonio2;
+          },
+          colorTextoTestimonio2: () => {
+            const el = document.getElementById("testimonioBlock2");
+            if (el) el.style.color = contenido.colorTextoTestimonio2;
+          },
+          colorNombreTestimonio2: () => {
+            const el = document.getElementById("nombreTestimonio2");
+            if (el) el.style.color = contenido.colorNombreTestimonio2;
+          },
+          colorFooter: () => {
+            const el = document.getElementById("mainFooter");
+            if (el) el.style.backgroundColor = contenido.colorFooter;
+          },
+          colorTextoFooter: () => {
+            const el = document.getElementById("mainFooter");
+            if (el) el.style.color = contenido.colorTextoFooter;
+          }
+        };
+
+        for (const key in cambiosColor) {
+          if (contenido[key]) cambiosColor[key]();
+        }
+      })
+      .catch((error) => console.error("Error al cargar CSV:", error));
+  }
+});
+
+function descargarPlantillaCompleta() {
+  // Eliminar elementos innecesarios si existen
+  document.querySelector("#configPanel")?.remove();
+  document.querySelector("#cta")?.remove();
+
+  const htmlCompleto = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  const blob = new Blob([htmlCompleto], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "plantilla_completa.html";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+  </script>
+</body>
+
+</html>

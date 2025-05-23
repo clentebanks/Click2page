@@ -1,0 +1,6 @@
+In this case, the file is required to be publicly shared. Please be careful about this.
+
+https://drive.google.com/thumbnail?sz=w1000&id={fileId}
+This endpoint is from https://stackoverflow.com/a/31504086
+In this endpoint, sz=w1000 is 1000 pixels in the width.
+{fileId} is the file ID.

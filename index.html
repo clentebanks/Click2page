@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click2Page – Connect Google Sheets to Your Website</title>
+    <meta name="description"
+      content="Click2Page is a Bootstrap web template that connects to Google Sheets in one click. Instantly create a CRM to edit and manage your website content with zero coding.">
+    <meta name="keywords"
+      content="Click2Page, Google Sheets website, no-code template, Bootstrap editable site, CRM website template, one-click sheet integration, easy content management">
+    <meta name="author" content="PIMATECNO">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title"
+      content="Click2Page – One-Click Editable Web Template Using Google Sheets">
+    <meta property="og:description"
+      content="Create a connected Google Sheet in one click to manage your website like a CRM. Perfect for non-coders and business owners.">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Click2Page">
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:title"
+      content="Click2Page – Editable Website Template with Google Sheets">
+    <meta name="twitter:description"
+      content="Edit your website with ease using a connected Google Sheet. One-click CRM-style control.">
+    <meta name="twitter:image"
+      content="https://yourdomain.com/twitter-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourhandle">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/Imagen2.png" type="image/x-icon">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="assets/Imagen1.png" alt="Logo" width="180" height="50"
+            class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end"
+          id="navbarContent">
+          <div class="ms-auto d-flex align-items-center">
+            <div class="language-switcher d-flex align-items-center">
+              <a href="#" onclick="setLanguage('en')"
+                class="text-dark me-4 d-flex align-items-center" id="lang-en"
+                data-i18n="navbar.lang_en"
+                style="font-size: 1.5rem; border: 2px solid #007bff; border-radius: 50%; padding: 5px 10px; transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;">
+                <span style="font-size: 1.75rem;">🇺🇸</span>
+                <span class="ms-1 fw-semibold">EN</span>
+              </a>
+              <a href="#" onclick="setLanguage('es')"
+                class="text-dark d-flex align-items-center" id="lang-es"
+                data-i18n="navbar.lang_es"
+                style="font-size: 1.5rem; border: 2px solid #dc3545; border-radius: 50%; padding: 5px 10px; transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;">
+                <span style="font-size: 1.75rem;">🇪🇸</span>
+                <span class="ms-1 fw-semibold">ES</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero position-relative text-white d-flex align-items-center justify-content-center"
+      style="background: url('/assets/laptop-2620118_1280.jpg') center center/cover no-repeat; min-height: 100vh;">
+      <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)); z-index: 1;"></div>
+      <div
+        class="container position-relative d-flex justify-content-center align-items-center h-100"
+        style="z-index: 2; text-align: center;">
+        <div class="px-3">
+          <h1 id="heroTitle" class="display-4 display-md-2 fw-bold mb-4"
+            style="font-size: 3.5rem;" data-i18n="heroTitle">
+            Build Smarter Sites with <span
+              class="highlight-text">Click2Page</span>
+          </h1>
+          <p id="heroSubtitle" class="lead mb-4" style="font-size: 1.3rem;"
+            data-i18n="heroSubtitle">
+            Instantly launch an editable website using Google Sheets — no code,
+            no stress.
+          </p>
+          <a id="btnStart" href="#demobtn"
+            class="btn btn-primary btn-lg px-5 py-3 mb-3"
+            style="font-size: 1.25rem;" data-i18n="btnStart">Create Your
+            Sheet</a>
+          <p class="mt-3">
+            <a id="herolinkExample" href="/test_landing/index.html"
+              class="text-white text-decoration-underline"
+              data-i18n="herolinkExample">Browse Examples ↓</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" data-aos="fade-up"
+      style="background-color: var(--secondary-color);">
+      <div class="container">
+        <h1 id="featuresTitle" class="text-center mb-5 text-dark-blue"
+          data-i18n="featuresTitle">Turn Your Website Into a No-Code CRM with
+          One Click.</h1>
+        <div class="row text-center features">
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="feature-card p-4 w-100 d-flex flex-column justify-content-start align-items-center">
+              <i class="bi bi-rocket display-4 mb-3 text-primary-color"></i>
+              <h5 id="feature1Title" class="fw-bold text-dark-blue"
+                data-i18n="feature1Title">Easy Editing</h5>
+              <p id="feature1Desc" class="mb-0" data-i18n="feature1Desc">Change
+                anything using a Google Sheet.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="feature-card p-4 w-100 d-flex flex-column justify-content-start align-items-center">
+              <i class="bi bi-magic display-4 mb-3 text-primary-color"></i>
+              <h5 id="feature2Title" class="fw-bold text-dark-blue"
+                data-i18n="feature2Title">No Developer Needed</h5>
+              <p id="feature2Desc" class="mb-0" data-i18n="feature2Desc">Clients
+                or team members can manage content directly.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="feature-card p-4 w-100 d-flex flex-column justify-content-start align-items-center">
+              <i class="bi bi-phone display-4 mb-3 text-primary-color"></i>
+              <h5 id="feature3Title" class="fw-bold text-dark-blue"
+                data-i18n="feature3Title">Real-Time Updates</h5>
+              <p id="feature3Desc" class="mb-0"
+                data-i18n="feature3Desc">Instantly see changes on your live
+                site.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5" data-aos="fade-up"
+      style="background-color: var(--white-color);">
+      <div class="container">
+        <h2 id="howItWorksTitle" class="text-center mb-5 text-dark-blue"
+          data-i18n="howItWorksTitle">How It Works in 3 Easy Steps</h2>
+        <div class="row text-center">
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="step-card p-4 w-100 d-flex flex-column justify-content-start align-items-center h-100">
+              <i
+                class="bi bi-layout-text-window display-4 mb-3 text-primary-color"></i>
+              <h5 id="step1Title" class="fw-bold text-dark-blue"
+                data-i18n="step1Title">1. Choose a Template</h5>
+              <p id="step1Desc" class="mb-0" data-i18n="step1Desc">Pick from
+                modern templates (HTML + CSS + JS).</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="step-card p-4 w-100 d-flex flex-column justify-content-start align-items-center h-100">
+              <i class="bi bi-google display-4 mb-3 text-primary-color"></i>
+              <h5 id="step2Title" class="fw-bold text-dark-blue"
+                data-i18n="step2Title">2. How it works</h5>
+              <p id="step2Desc" class="mb-0" data-i18n="step2Desc">We'll create
+                a Google Sheet linked to your content.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex">
+            <div
+              class="step-card p-4 w-100 d-flex flex-column justify-content-start align-items-center h-100">
+              <i class="bi bi-upload display-4 mb-3 text-primary-color"></i>
+              <h5 id="step3Title" class="fw-bold text-dark-blue"
+                data-i18n="step3Title">3. Edit Content from Google Sheets</h5>
+              <p id="step3Desc" class="mb-0" data-i18n="step3Desc">Change texts,
+                images & styles in seconds — no code needed.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Template Gallery Preview -->
+    <section class="py-5" data-aos="fade-up" id="examples"
+      style="background-color: var(--secondary-color);">
+      <div class="container">
+        <h2 id="gallaryTlttle"
+          class="text-center mb-5 text-dark-blue">Ready-to-Use Landing
+          Templates</h2>
+        <div class="row g-4 template-preview">
+          <div class="col-md-4">
+            <div class="template-card">
+              <img src="https://via.placeholder.com/350x200"
+                alt="Restaurant Template" class="img-fluid rounded">
+              <h6 id="gallary1"
+                class="mt-3 text-center text-dark-blue">Restaurant</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="template-card">
+              <img src="https://via.placeholder.com/350x200"
+                alt="Freelancer Template" class="img-fluid rounded">
+              <h6 id="gallary2"
+                class="mt-3 text-center text-dark-blue">Freelancer</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="template-card">
+              <img src="https://via.placeholder.com/350x200"
+                alt="Real Estate Template" class="img-fluid rounded">
+              <h6 id="gallary3" class="mt-3 text-center text-dark-blue">Real
+                Estate</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Click2Page Section -->
+    <section class="py-5" data-aos="fade-up"
+      style="background-color: var(--secondary-color);">
+      <div class="container">
+        <h2 id="WhyTittle" class="text-center mb-5 text-dark-blue">Why Choose
+          Click2Page for Your Landing Pages?</h2>
+        <div class="row justify-content-center">
+          <!-- Click2Page Features -->
+          <div class="col-md-5 mb-4 mb-md-0">
+            <div class="feature-box shadow p-4 rounded text-white"
+              style="background-color: var(--primary-color);">
+              <h4 class="mb-3"><i
+                  class="bi bi-lightning-charge-fill me-2"></i>Click2Page</h4>
+              <ul class="list-unstyled lh-lg">
+                <li id="Why1"><i
+                    class="bi bi-check-circle-fill me-2 text-white"></i>Built
+                  for landing pages</li>
+                <li id="Why2"><i
+                    class="bi bi-check-circle-fill me-2 text-white"></i>Launch
+                  in under 2 minutes</li>
+                <li id="Why3"><i
+                    class="bi bi-check-circle-fill me-2 text-white"></i>Edit
+                  everything from Google Sheets</li>
+                <li id="Why4"><i
+                    class="bi bi-check-circle-fill me-2 text-white"></i>No
+                  login, no account, just one-click setup</li>
+                <li id="Why5"><i
+                    class="bi bi-check-circle-fill me-2 text-white"></i>Pro
+                  access with a single payment — subscription optional</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Traditional Builders -->
+          <div class="col-md-5">
+            <div class="feature-box shadow p-4 rounded text-dark"
+              style="background-color: #ffffff;">
+              <h4 id="whyNotTraditionaltitlle" class="mb-3 text-muted"><i
+                  class="bi bi-tools me-2"></i>Traditional Site Builders</h4>
+              <ul class="list-unstyled lh-lg text-muted">
+                <li id="whyNotTraditionaltitlle1"><i
+                    class="bi bi-x-circle-fill me-2 text-danger"></i>Too complex
+                  for simple landing pages</li>
+                <li id="whyNotTraditionaltitlle2"><i
+                    class="bi bi-x-circle-fill me-2 text-danger"></i>Require
+                  accounts, logins, and hosting</li>
+                <li id="whyNotTraditionaltitlle3"><i
+                    class="bi bi-x-circle-fill me-2 text-danger"></i>Monthly
+                  fees add up quickly</li>
+                <li id="whyNotTraditionaltitlle4"><i
+                    class="bi bi-x-circle-fill me-2 text-danger"></i>Not
+                  beginner-friendly</li>
+                <li id="whyNotTraditionaltitlle5"><i
+                    class="bi bi-x-circle-fill me-2 text-danger"></i>Overwhelming
+                  features you won’t use</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo / Video Walkthrough Section -->
+    <section class="py-5 text-center" data-aos="fade-up"
+      style="background: linear-gradient(135deg, #e0f2ff, #f0f8ff);">
+      <div class="container">
+        <h2 id="demoTittle" class="mb-3 text-dark-blue fw-bold">🚀 See
+          Click2Page in Action</h2>
+        <p id="demoDescription" class="lead text-muted mb-4">Watch how you can
+          launch a modern website in 60 seconds — powered by Google Sheets and
+          AI, no code needed.</p>
+
+        <div class="ratio ratio-16x9 mb-4 shadow rounded-4 overflow-hidden"
+          style="max-width: 900px; margin: 0 auto;">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Click2Page Demo" allowfullscreen></iframe>
+        </div>
+
+        <a href="test_generate.html" id="demobtn"
+          class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-sm">
+          🎯 Try Live Demo Now
+        </a>
+      </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="py-5" data-aos="fade-up"
+      style="background-color: var(--secondary-color);">
+      <div class="container">
+        <h2 id="priciingTittle" class="text-center mb-5 text-dark-blue">Simple,
+          Honest Pricing</h2>
+        <div class="row justify-content-center text-center g-4">
+
+          <!-- Starter Plan -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow border-0 pricing-card">
+              <div class="card-body">
+                <h5 id="pricingStartertittle"
+                  class="card-title text-muted">Starter</h5>
+                <h2 id="starterPrice" class="text-primary">$0</h2>
+                <p id="starterDuration" class="text-muted">Free forever</p>
+                <ul class="list-unstyled my-4">
+                  <li id="starter1">✅ 1 Landing Page</li>
+                  <li id="starter2">✅ Click2Page branding</li>
+                  <li id="starter3">✅ 3 templates</li>
+                </ul>
+                <a id="starteBtn" href="#" class="btn btn-outline-primary">Start
+                  Free</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro Plan (Highlighted) -->
+          <div class="col-md-4">
+            <div
+              class="card h-100 shadow-lg border-0 pricing-card highlight-card">
+              <div class="card-body">
+                <h5 class="card-title text-white">Pro</h5>
+                <h2 class="text-white">$19</h2>
+                <p id="proDuration" class="text-white-50">One-time payment</p>
+                <ul class="list-unstyled my-4 text-white">
+                  <li id="pro1">✅ Unlimited edits</li>
+                  <li id="pro2">✅ Remove branding</li>
+                  <li id="pro3">✅ All templates included</li>
+                </ul>
+                <a id="proBtn" href="#" class="btn btn-light">Get Pro</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Plan -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow border-0 pricing-card">
+              <div class="card-body">
+                <h5 id="pricingbusinesstittle"
+                  class="card-title text-muted">Business</h5>
+                <h2 class="text-primary">$9</h2>
+                <p id="businessDuration" class="text-muted">Per month</p>
+                <ul class="list-unstyled my-4">
+                  <li id="business1">✅ Custom domain</li>
+                  <li id="business2">✅ Analytics</li>
+                  <li id="business3">✅ Priority support</li>
+                </ul>
+                <a id="businessBtn" href="#"
+                  class="btn btn-outline-primary">Subscribe</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Customer Logos Section -->
+    <section class="py-5 bg-light" data-aos="fade-up">
+      <div class="container text-center">
+        <h2 id="logosTittle" class="mb-4 fw-bold">Trusted by Small Businesses
+          Everywhere</h2>
+        <p id="logosDescription" class="mb-5 text-muted">Join hundreds of
+          entrepreneurs using <strong>Click2Page</strong> to simplify their web
+          presence.</p>
+
+        <div class="row justify-content-center align-items-center g-4">
+          <div class="col-4 col-md-2">
+            <img src="https://via.placeholder.com/120x60?text=Logo+1"
+              class="img-fluid grayscale-hover fade-in" alt="Client Logo 1">
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="https://via.placeholder.com/120x60?text=Logo+2"
+              class="img-fluid grayscale-hover fade-in" alt="Client Logo 2">
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="https://via.placeholder.com/120x60?text=Logo+3"
+              class="img-fluid grayscale-hover fade-in" alt="Client Logo 3">
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="https://via.placeholder.com/120x60?text=Logo+4"
+              class="img-fluid grayscale-hover fade-in" alt="Client Logo 4">
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="https://via.placeholder.com/120x60?text=Logo+5"
+              class="img-fluid grayscale-hover fade-in" alt="Client Logo 5">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-5" data-aos="fade-up" style="background-color: #f0f4ff;">
+      <div class="container">
+        <h2 id="testimonialsTittle" class="text-center fw-bold mb-5">What Our
+          Users Are Saying</h2>
+        <div class="row g-4 justify-content-center">
+
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 p-4 bg-white fade-in">
+              <div class="card-body">
+                <p id="testimonialsText"
+                  class="card-text fs-5">“<strong>Click2Page</strong> saved me
+                  hours. My site was live in minutes!”</p>
+                <footer id="testimonialsFooter" class=" mt-3 text-muted">Ana M.,
+                  <cite title="Source Title">Boutique Owner</cite></footer>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              class="card h-100 shadow-sm border-0 p-4 bg-white fade-in delay-1">
+              <div class="card-body">
+                <p id="testimonialsText2" class="card-text fs-5">“Perfect for
+                  non-tech folks like me. It just works.”</p>
+                <footer id="testimonialsFooter2" class=" mt-3 text-muted">Luis
+                  T., <cite title="Source Title">Freelancer</cite></footer>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div
+              class="card h-100 shadow-sm border-0 p-4 bg-white fade-in delay-2">
+              <div class="card-body">
+                <p id="testimonialsText3" class="card-text fs-5">“The AI
+                  features blew my mind — instant landing pages!”</p>
+                <footer id="testimonialsFooter3" class=" mt-3 text-muted">Sara
+                  G., <cite title="Source Title">Digital
+                    Marketer</cite></footer>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-5 position-relative" data-aos="fade-up"
+      style="background: linear-gradient(135deg, #e0f4ff, #f8faff);">
+      <div class="container">
+        <h2 id="faqTittle"
+          class="text-center mb-3 fw-bold text-primary display-6">🙋‍♂️
+          Frequently Asked Questions</h2>
+        <p id="faqDescription" class="text-center text-muted mb-5 fs-5">Got
+          doubts? We've got you covered — no jargon, no fluff.</p>
+
+        <div class="accordion accordion-flush" id="faqAccordion">
+          <!-- FAQ Item 1 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq1heading">
+              <button class="accordion-button fw-semibold" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq1"
+                aria-expanded="true" aria-controls="faq1">
+                <i class="fa-solid fa-code me-2 text-primary"></i>Do I need to know how to code?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show"
+              aria-labelledby="faq1heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Not at all! Just fill out a Google Sheet and
+                <strong>Click2Page</strong> automatically builds your site. No
+                coding, no hassle.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq2heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                aria-expanded="false" aria-controls="faq2">
+                <i class="fa-solid fa-table me-2 text-primary"></i> How do I
+                create my Google Sheet?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse"
+              aria-labelledby="faq2heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Just click the <strong>"Generate Sheet"</strong> button and
+                we’ll automatically create a pre-filled sheet with all your
+                editable content. You can start editing right away.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq3heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                aria-expanded="false" aria-controls="faq3">
+                <i class="fa-solid fa-link me-2 text-primary"></i> How does the
+                sheet connect to my site?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse"
+              aria-labelledby="faq3heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                You don’t need to set anything up. Click2Page links your sheet
+                in the background. Every time you save changes, your site
+                updates instantly.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq4heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
+                aria-expanded="false" aria-controls="faq4">
+                <i
+                  class="fa-solid fa-wand-magic-sparkles me-2 text-primary"></i>
+                What can I edit from the sheet?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse"
+              aria-labelledby="faq4heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                You can update text, images, colors, links, buttons and more —
+                all from the Google Sheet interface, no coding required.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq5heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq5"
+                aria-expanded="false" aria-controls="faq5">
+                <i class="fa-solid fa-rotate me-2 text-primary"></i> How do
+                updates work?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse"
+              aria-labelledby="faq5heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Whenever you make changes to your Google Sheet, simply refresh
+                the page to see the updated content. Your edits are applied
+                instantly—just hit refresh!.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq6heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq6"
+                aria-expanded="false" aria-controls="faq6">
+                <i class="fa-solid fa-user-group me-2 text-primary"></i> Can I
+                collaborate with others or back up my content?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse"
+              aria-labelledby="faq6heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Yes! Since your content lives in Google Sheets, you can easily
+                share it with your team and make backups using Google Drive. All
+                changes are auto-saved and versioned.
+              </div>
+            </div>
+          </div>
+          <!-- Smart Assistant FAQ -->
+          <div class="text-center mt-5">
+            <div class="border rounded-4 p-4 bg-white shadow-sm d-inline-block">
+              <p id="botquestion" class="fw-semibold text-dark mb-2 fs-5"><i
+                  class="fa-regular fa-comments me-2"></i>Still have
+                questions?</p>
+              <p id="bottext" class="text-muted mb-3">Ask our smart assistant — it's always
+                ready to help!</p>
+              <a href="#chatbot-area" onclick="openChat()"
+                class="btn btn-primary px-4 rounded-pill">
+                <i class="fa-solid fa-robot me-2"></i><span id="botopen">Chat Now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-5 " data-aos="fade-up"
+        style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="container">
+          <h2 class="text-center mb-4 text-dark-blue">Let’s Get in Touch</h2>
+          <p class="text-center text-muted mb-5">Have a question or want a
+            custom solution? We’re here to help.</p>
+
+          <div class="row justify-content-center " data-aos="fade-up">
+            <div class="col-md-8">
+              <form class="bg-white p-4 rounded-4 shadow-lg">
+                <div class="mb-3">
+                  <label for="name" class="form-label text-dark-blue">Your
+                    Name</label>
+                  <input type="text"
+                    class="form-control border-0 rounded-3 shadow-sm" id="name"
+                    placeholder="Enter your name"
+                    style="background-color: #f0f8ff;">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label text-dark-blue">Your
+                    Email</label>
+                  <input type="email"
+                    class="form-control border-0 rounded-3 shadow-sm" id="email"
+                    placeholder="Enter your email"
+                    style="background-color: #f0f8ff;">
+                </div>
+                <div class="mb-3">
+                  <label for="message"
+                    class="form-label text-dark-blue">Message</label>
+                  <textarea class="form-control border-0 rounded-3 shadow-sm"
+                    id="message" rows="4" placeholder="Type your message"
+                    style="background-color: #f0f8ff;"></textarea>
+                </div>
+                <div class="text-center">
+                  <div class="text-center">
+                    <button type="submit"
+                      class="btn btn-primary px-5 py-3 rounded-pill">Send
+                      Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Return to Top Button -->
+      <button id="returnToTopBtn"
+        class="btn btn-primary btn-lg rounded-circle position-fixed d-none"
+        style="bottom: 20px; right: 150px; z-index: 1050; transition: opacity 0.4s ease;">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+      <!-- Chatbot Area -->
+      <div id="chatbot-area"
+        style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        <!-- Floating Chatbot Button -->
+        <div id="chatbot-button"
+          class="chatbot-button btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+          style="width: 60px; height: 60px; cursor: pointer;">
+          <i class="fa-solid fa-robot fa-lg text-white"></i>
+        </div>
+
+        <!-- Chatbot Window -->
+        <div id="chatbot-window" class="chatbot-window shadow"
+          style="display: none; width: 320px; background: white; border-radius: 12px; overflow: hidden; flex-direction: column;">
+          <div
+            class="chat-header bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+            <span><i class="fa-solid fa-robot me-2"></i>How can I help
+              you?</span>
+            <button onclick="closeChat()"
+              class="btn-close btn-close-white btn-sm"></button>
+          </div>
+          <div id="chatbot-content" class="chat-content p-3"
+            style="height: 250px; overflow-y: auto;"></div>
+          <input type="text" id="chat-input"
+            class="form-control rounded-0 border-top"
+            placeholder="Ask something..." onkeyup="checkInput(event)" />
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+          <!-- Brand Line -->
+          <h5 class="mb-3 fw-bold">
+            <span style="color: #4da6ff;">Click2Page</span> — Built for Real
+            People
+          </h5>
+
+          <!-- Social Icons -->
+          <div class="mb-4">
+            <a href="#" class="text-white me-3"><i
+                class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-white me-3"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+          </div>
+
+          <!-- Navigation Links -->
+          <p class="mb-3">
+            <a href="#" class="text-white text-decoration-none me-3">Privacy</a>
+            <a href="#" class="text-white text-decoration-none me-3">Contact</a>
+            <a href="#examples"
+              class="text-white text-decoration-none">Templates</a>
+          </p>
+
+          <!-- Newsletter Signup -->
+          <form class="d-flex justify-content-center mb-4"
+            style="max-width: 400px; margin: auto;">
+            <input type="email" class="form-control me-2"
+              placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <p class="small mb-0">© 2025 Click2Page. Made with ❤️ for small
+            business owners, freelancers, and dreamers.</p>
+          <p class="small mb-0">Made by <strong>PIMATECNO</strong></p>
+        </div>
+      </footer>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- AOS JS -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+      <script src="/scripts.js"></script>
+      <script>
+  AOS.init({
+    easing: 'ease-in-out-sine',
+    duration: 1000, // Duración de la animación
+    once: true // Para que la animación solo ocurra una vez
+  });
+</script>
+
+    </body>
+  </html>

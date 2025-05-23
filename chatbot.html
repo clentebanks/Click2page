@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>Document</title>
+  <style>
+  /* Floating chatbot button */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-button:hover {
+  background-color: #0056b3;
+}
+.highlight-text {
+  background: linear-gradient(90deg, var(--primary-color), var(--electric-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+/*footer*/
+footer a:hover {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+
+/* Chatbot window */
+.chatbot-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-width: 90%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  height: 400px;
+  animation: fadeIn 0.3s ease-out;
+}
+/*Logos Section*/
+.grayscale-hover {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.grayscale-hover:hover {
+  filter: grayscale(0%);
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #888;
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/*Testimonials Section*/
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.fade-in.delay-1 {
+  animation-delay: 0.2s;
+}
+.fade-in.delay-2 {
+  animation-delay: 0.4s;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Chatbot header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Chat content */
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333;
+}
+
+.chat-content div {
+  margin-bottom: 10px;
+}
+
+.chat-content .user {
+  text-align: right;
+  font-weight: bold;
+}
+
+.chat-content .ai {
+  text-align: left;
+  color: #007BFF;
+}
+
+/* Input field */
+#chat-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#chat-input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+/* Fade-in animation for chatbot */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  background-color: #e0f7fa;
+  color: #333;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.user-message .bubble {
+  background-color: #c8e6c9;
+  border-bottom-right-radius: 0;
+  align-self: flex-end;
+}
+
+.ai-message .bubble {
+  background-color: #eeeeee;
+  border-bottom-left-radius: 0;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 2px;
+  text-align: right;
+}
+
+/* Typing animation */
+.typing-dots {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  background-color: #888;
+  border-radius: 50%;
+  animation: blink 1.4s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/*efecto boton*/
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #00c6ff, #007bff);
+  transform: scale(1.05); /* Agranda un poco el tamaño del botón al hacer hover */
+}
+
+
+/* Hover effects for language switcher */
+#lang-en:hover, #lang-es:hover {
+  background-color: #f0f8ff; /* Light blue background on hover */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Soft shadow for EN */
+}
+
+#lang-es:hover {
+  background-color: #f8d7da; /* Light red background on hover */
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3); /* Soft shadow for ES */
+}
+
+/* Enlarge effect */
+#lang-en:hover, #lang-es:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  .navbar-brand img {
+    max-width: 120px;
+  }
+}
+  </style>
+</head>
+<body>
+ 
+<!-- Chatbot Window -->
+        <div id="chatbot-window" class="chatbot-window shadow"
+          style="display: none; width: 320px; background: white; border-radius: 12px; overflow: hidden; flex-direction: column;">
+          <div
+            class="chat-header bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+            <span><i class="fa-solid fa-robot me-2"></i>How can I help
+              you?</span>
+            <button onclick="closeChat()"
+              class="btn-close btn-close-white btn-sm"></button>
+          </div>
+          <div id="chatbot-content" class="chat-content p-3"
+            style="height: 250px; overflow-y: auto;"></div>
+          <input type="text" id="chat-input"
+            class="form-control rounded-0 border-top"
+            placeholder="Ask something..." onkeyup="checkInput(event)" />
+        </div>
+      </div>
+       <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- AOS JS -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+       <script>
+
+    const faq = [
+  { q: /what.*templates/i, a: "Click2Page offers responsive HTML, CSS, Bootstrap, and JavaScript templates optimized for landing pages, portfolios, and small business websites." },
+  { q: /customize.*templates?/i, a: "Yes! All templates are fully editable using the integrated Google Sheet or by editing the HTML/CSS directly." },
+  { q: /how.*one.?click.*work/i, a: "Just click the integration button to automatically generate a linked Google Sheet that controls your website content." },
+  { q: /need.*google.*account/i, a: "Yes, a Google account is needed to create and edit your site's content from the sheet." },
+  { q: /edit.*content.*sheet/i, a: "You can modify text, images, buttons, colors, and even full sections like testimonials or pricing—all from the sheet." },
+  { q: /collaborat.*team/i, a: "Yes, you can share the sheet and work with others in real-time. Everyone sees updates instantly." },
+  { q: /download.*template/i, a: "Absolutely! You can download any template in a ZIP file to host or modify it as you wish." },
+  { q: /need.*coding.*custom/i, a: "No coding is needed if you use the Google Sheet integration. But advanced users can edit the code too." },
+  { q: /need.*help|support/i, a: "No worries! I'm here to help. Just ask a question, and I’ll guide you through setting things up." },
+  { q: /non.*tech|beginner|no.*code/i, a: "Yes! Click2Page is made for non-tech users who want a professional site with zero coding." }
+];
+
+const chatbotArea = document.getElementById('chatbot-area');
+const chatbotWindow = document.getElementById('chatbot-window');
+const chatbotButton = document.getElementById('chatbot-button');
+let isOpen = false;
+let timeout;
+
+// Hover (desktop)
+chatbotArea.addEventListener('mouseenter', () => {
+  clearTimeout(timeout);
+  chatbotWindow.style.display = 'flex';
+  isOpen = true;
+});
+
+chatbotArea.addEventListener('mouseleave', () => {
+  timeout = setTimeout(() => {
+    chatbotWindow.style.display = 'none';
+    isOpen = false;
+  }, 500);
+});
+
+// Touch (mobile)
+chatbotButton.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  isOpen = !isOpen;
+  chatbotWindow.style.display = isOpen ? 'flex' : 'none';
+});
+
+// "Chat Now" external button trigger
+function openChat() {
+  chatbotWindow.style.display = 'flex';
+  chatbotWindow.scrollIntoView({ behavior: 'smooth' });
+  isOpen = true;
+}
+
+// Close button
+function closeChat() {
+  chatbotWindow.style.display = 'none';
+  isOpen = false;
+}
+
+// Handle input and match questions
+function checkInput(event) {
+  if (event.key === 'Enter' && event.target.value.trim() !== '') {
+    sendChatMessage(event.target.value.trim());
+  }
+}
+function sendChatMessage(message) {
+  const chatContent = document.getElementById('chatbot-content');
+  const now = new Date();
+  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  // User bubble
+  chatContent.innerHTML += `
+    <div class="chat-message user-message">
+      <div class="bubble">${escapeHTML(message)}</div>
+      <small class="timestamp">${time}</small>
+    </div>`;
+  chatContent.scrollTop = chatContent.scrollHeight;
+
+  // Typing animation bubble
+  const typingEl = document.createElement("div");
+  typingEl.className = "chat-message ai-message";
+  typingEl.innerHTML = `
+    <div class="bubble typing-dots">
+      <span></span><span></span><span></span>
+    </div>`;
+  chatContent.appendChild(typingEl);
+  chatContent.scrollTop = chatContent.scrollHeight;
+
+  const match = faq.find(f => f.q.test(message));
+  const reply = match ? match.a : "🤖 I'm not sure about that yet, but you can ask me about templates, setup, or editing tips!";
+
+  setTimeout(() => {
+    typingEl.remove();
+    const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    // AI reply bubble
+    chatContent.innerHTML += `
+      <div class="chat-message ai-message">
+        <div class="bubble">${reply}</div>
+        <small class="timestamp">${replyTime}</small>
+      </div>`;
+    document.getElementById('chat-input').value = '';
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }, 1000);
+}
+
+  </script>
+</body>
+</html>

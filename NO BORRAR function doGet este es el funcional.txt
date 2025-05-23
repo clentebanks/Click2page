@@ -1,0 +1,313 @@
+function doGet() {
+  return HtmlService.createHtmlOutput(`
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f0f4f8;
+        color: #333;
+        padding: 40px 20px;
+        max-width: 720px;
+        margin: auto;
+      }
+
+      h2 {
+        color: #00796B;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      form {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        margin-bottom: 30px;
+      }
+
+      .form-section {
+        margin-bottom: 25px;
+      }
+
+      .form-section h3 {
+        font-size: 17px;
+        color: #004d40;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+        transform: scale(1.2);
+        vertical-align: middle;
+      }
+
+      button {
+        background: #00796B;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: block;
+        margin: 0 auto 30px auto;
+      }
+
+      button:hover {
+        background: #004d40;
+      }
+
+      #spinner {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .lds-dual-ring {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+      }
+
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #00796B;
+        border-color: #00796B transparent #00796B transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+      .info {
+              text-align: center;
+              background: #e0f7fa;
+              color: #00796b;
+              padding: 10px;
+              border-radius: 8px;
+              margin-bottom: 20px;
+              font-size: 15px;
+            }
+      @keyframes lds-dual-ring {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      #resultado {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #resultado p {
+        color: green;
+        font-weight: bold;
+      }
+
+      #resultado a button {
+        background: #263238;
+        margin-top: 10px;
+      }
+    </style>
+
+    <h2>🛠️ Configura tu plantilla</h2>
+    <p class="subtitle">Selecciona los elementos que deseas incluir en tu hoja dinámica de contenido</p>
+    <div class="info">🛈 Desplázate hasta el final para encontrar el botón que crea tu hoja de contenido.</div>
+
+    <form id="formulario">
+      <div class="form-section">
+        <h3>🏷️ Información general</h3>
+        <label><input type="checkbox" name="elemento" value="title" checked> Título del sitio</label>
+        <label><input type="checkbox" name="elemento" value="favicon" checked> Favicon</label>
+        <label><input type="checkbox" name="elemento" value="businessName" checked> Nombre del negocio</label>
+        <label><input type="checkbox" name="elemento" value="heroTitulo" checked> Título principal (Hero)</label>
+      </div>
+
+      <div class="form-section">
+        <h3>⭐ Características</h3>
+        <label><input type="checkbox" value="caracteristic1Tittle" name="elemento" checked> Título de característica 1</label>
+        <label><input type="checkbox" value="caracteristic1Texto" name="elemento" checked> Texto característica 1</label>
+        <label><input type="checkbox" value="caracteristic2Tittle" name="elemento" checked> Título de característica 2</label>
+        <label><input type="checkbox" value="caracteristic2Text" name="elemento" checked> Texto característica 2</label>
+        <label><input type="checkbox" value="caracteristic3Tittle" name="elemento" checked> Título de característica 3</label>
+        <label><input type="checkbox" value="caracteristic3Text" name="elemento" checked> Texto característica 3</label>
+      </div>
+
+      <div class="form-section">
+        <h3>🖼️ Imágenes y secciones</h3>
+        <label><input type="checkbox" value="image1" name="elemento" checked> Imagen 1</label>
+        <label><input type="checkbox" value="tittleImg1" name="elemento" checked> Título imagen 1</label>
+        <label><input type="checkbox" value="descriptionImg1" name="elemento" checked> Descripción imagen 1</label>
+        <label><input type="checkbox" value="image2" name="elemento" checked> Imagen 2</label>
+        <label><input type="checkbox" value="tittleImg2" name="elemento" checked> Título imagen 2</label>
+        <label><input type="checkbox" value="descriptionImg2" name="elemento" checked> Descripción imagen 2</label>
+        <label><input type="checkbox" value="image3" name="elemento" checked> Imagen 3</label>
+        <label><input type="checkbox" value="tittleImg3" name="elemento" checked> Título imagen 3</label>
+      </div>
+
+      <div class="form-section">
+        <h3>💬 Testimonios</h3>
+        <label><input type="checkbox" value="testimonialsTittle" name="elemento" checked> Título de sección</label>
+        <label><input type="checkbox" value="testimonials1Img" name="elemento" checked> Imagen testimonio 1</label>
+        <label><input type="checkbox" value="testimonials1Name" name="elemento" checked> Nombre testimonio 1</label>
+        <label><input type="checkbox" value="testimonials2Img" name="elemento" checked> Imagen testimonio 2</label>
+        <label><input type="checkbox" value="testimonials2Name" name="elemento" checked> Nombre testimonio 2</label>
+        <label><input type="checkbox" value="testimonials2" name="elemento" checked> Texto testimonio 2</label>
+        <label><input type="checkbox" value="testimonials3Img" name="elemento" checked> Imagen testimonio 3</label>
+        <label><input type="checkbox" value="testimonials3Name" name="elemento" checked> Nombre testimonio 3</label>
+        <label><input type="checkbox" value="testimonials3" name="elemento" checked> Texto testimonio 3</label>
+      </div>
+
+      <div class="form-section">
+        <h3>🎯 Llamado a la acción</h3>
+        <label><input type="checkbox" value="actionTittle" name="elemento" checked> Título CTA</label>
+      </div>
+
+      <div class="form-section">
+        <h3>📎 Footer</h3>
+        <label><input type="checkbox" value="mainFooterAbout" name="elemento" checked> Acerca de</label>
+        <label><input type="checkbox" value="mainFootercontact" name="elemento" checked> Contacto</label>
+        <label><input type="checkbox" value="mainFooterTerms_use" name="elemento" checked> Términos de uso</label>
+        <label><input type="checkbox" value="mainFooterPrivacy" name="elemento" checked> Política de privacidad</label>
+        <label><input type="checkbox" value="mainFooterbusinessName" name="elemento" checked> Nombre del negocio</label>
+      </div>
+
+      <div class="form-section">
+        <h3>🎨 Personalización de colores</h3>
+        <label><input type="checkbox" name="elemento" value="colorFondo" checked> Fondo</label>
+        <label><input type="checkbox" name="elemento" value="colorTexto" checked> Texto</label>
+        <label><input type="checkbox" name="elemento" value="colorBoton" checked> Botón</label>
+        <label><input type="checkbox" name="elemento" value="colorEncabezado" checked> Encabezado</label>
+        <label><input type="checkbox" name="elemento" value="colorNavbar" checked> Navbar</label>
+        <label><input type="checkbox" name="elemento" value="colorCard" checked> Cards</label>
+        <label><input type="checkbox" name="elemento" value="colorTestimonio" checked> Fondo Testimonio 1</label>
+        <label><input type="checkbox" name="elemento" value="colorTextoTestimonio" checked> Texto Testimonio 1</label>
+        <label><input type="checkbox" name="elemento" value="colorNombreTestimonio1" checked> Nombre Testimonio 1</label>
+        <label><input type="checkbox" name="elemento" value="colorTestimonio2" checked> Fondo Testimonio 2</label>
+        <label><input type="checkbox" name="elemento" value="colorTextoTestimonio2" checked> Texto Testimonio 2</label>
+        <label><input type="checkbox" name="elemento" value="colorNombreTestimonio2" checked> Nombre Testimonio 2</label>
+        <label><input type="checkbox" name="elemento" value="colorTextoFooter" checked> Texto Footer</label>
+        <label><input type="checkbox" name="elemento" value="colorFooter" checked> Fondo Footer</label>
+      </div>
+    </form>
+
+    <button onclick="crearHoja()">📄 Crear hoja</button>
+
+    <div id="spinner">
+      <div class="lds-dual-ring"></div>
+      <p>Creando hoja de contenido...</p>
+    </div>
+
+    <div id="resultado"></div>
+
+    <script>
+      function crearHoja() {
+        const seleccionados = [...document.querySelectorAll('input[name="elemento"]:checked')].map(e => e.value);
+        document.getElementById("spinner").style.display = "block";
+        google.script.run.withSuccessHandler(function(respuesta) {
+          document.getElementById("spinner").style.display = "none";
+          localStorage.setItem("contenidoURL", respuesta.csvUrl);
+          document.getElementById("resultado").innerHTML = \`
+            <p>✅ Hoja creada correctamente.</p>
+            <a href="\${respuesta.sheetUrl}" target="_blank">
+              <button>Abrir hoja en Google Sheets</button>
+            </a>
+          \`;
+          alert("✅ Hoja creada y guardada automáticamente. Vuelve a tu sitio web para ver los cambios.");
+        }).crearGoogleSheet(seleccionados);
+      }
+    </script>
+  `).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function crearGoogleSheet(seleccionados) {
+  const ss = SpreadsheetApp.create("Landing Page - Start Bootstrap Theme");
+  const hoja = ss.getActiveSheet();
+  hoja.appendRow(["elemento", "valor"]);
+
+  const contenidoCompleto = {
+    title: "Landing Page - Start Bootstrap Theme",
+    favicon: "https://drive.google.com/thumbnail?sz=1tVeojttsAEIYP--5VkkkPSwGUrCQlTqB",
+    businessName: "Start Bootstrap",
+    heroTitulo: "Generate more leads with a professional landing page!",
+    caracteristic1Tittle:"Fully Responsive",
+    caracteristic1Texto:"This theme will look great on any device, no matter the size!",
+    caracteristic2Tittle:"Bootstrap 5 Ready",
+    caracteristic2Text:"Featuring the latest build of the new Bootstrap 5 framework!",
+    caracteristic3Tittle:"Easy to Use",
+    caracteristic3Text:"Ready to use with your own content, or customize the source files!",
+    image1: "https://drive.google.com/thumbnail?sz=w1000&id=1QkITMOjhNIaUF282ANpdUbIiTxVpi0Ai",
+    tittleImg1: "Fully Responsive Design",
+    descriptionImg1: "When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet,or desktop the page will behave responsively!",
+    image2:"https://drive.google.com/thumbnail?sz=w1000&id=1fHOevcSHYQxym9HxDJxADkCoT5lwLBAV",
+    descriptionImg2:"Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!",
+    image3:"https://drive.google.com/thumbnail?sz=w1000&id=1Eoik4hoOXFR70R2KEPJUvxEyQcdjsLz2",
+    tittleImg3:"Easy to Use & Customize",
+    descriptionImg3:"Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!",
+    testimonialsTittle:"What people are saying...",
+    testimonials1Img:"Https://drive.google.com/thumbnail?sz=w1000&id=1gWmOqmYBqHVwUlosoFtI1ollln8L8JBW",
+    testimonials1Name:"Margaret E.",
+    testimonials1:"'This is fantastic! Thanks so much guys!'",
+    testimonials2Img:"https://drive.google.com/thumbnail?sz=w1000&id=1nOXxl-7tifa1K5zqrVhTPKWm-ycskPEV",
+    testimonials2Name:"Fred S.",
+    testimonials2:"'Bootstrap is amazing. I've been using it to create lots of super nice landing pages.'",
+    testimonials3Img:"https://drive.google.com/thumbnail?sz=w1000&id=13Q1JLI_eTFdS45uxAWyGIctD3_2VAm1j",
+    testimonials3Name:"Sarah W.",
+    testimonials3:"'Thanks so much for making these free resources available to us!'",
+    actionTittle:"Ready to get started? Sign up now!",
+
+    mainFooterAbout: "About",
+    mainFootercontact: "Contact",
+    mainFooterTerms_use: "Terms of Use",
+    mainFooterPrivacy: "Privacy Policy",
+    mainFooterbusinessName: "Your Website 2023. All Rights Reserved.",
+    mastheadbacgroundimg:"https://drive.google.com/thumbnail?sz=w1000&id=1OygkRwypAHDq4w76BYkZhDLBitimObN9",
+
+    // 🎨 Nuevos colores de plantilla
+    colorFondo: "#f4f8fb",
+    colorTexto: "#333333",
+    colorBoton: "#3aafa9",
+    colorEncabezado: "#2b7a78",
+    colorNavbar: "#17252a",
+    colorCard:"#C0C0C0",
+    colorTextoFooter:"#ffffff",
+    mainFooter:"#000000",
+    colorTextoTestimonio:"#800080",
+    colorTestimonio:"#808000",
+    colorNombreTestimonio1:"#008000",
+    colorTestimonio2:"#008000",
+    colorTextoTestimonio2:"#0000FF",
+    colorNombreTestimonio2:"#008000"
+
+  };
+
+  seleccionados.forEach(key => {
+    if (contenidoCompleto[key]) {
+      hoja.appendRow([key, contenidoCompleto[key]]);
+    }
+  });
+
+  const sheetId = ss.getId();
+  const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+  const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+
+  DriveApp.getFileById(sheetId).setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+  return { csvUrl, sheetUrl };
+}
+
