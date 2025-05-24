@@ -1,0 +1,342 @@
+/*azul claro (#E9F1FA), azul brillante (#00ABE4), blanco (#FFFFFF)
+******azul marino intenso (#01257D), azul eléctrico (#00FFFF)
+******verde cardenal (#0C1A1A), verde azulado claro (#6ACFC7)
+*/
+
+:root {
+  --primary-color: #00ABE4; /* Bright blue */
+  --secondary-color: #E9F1FA; /* Light blue */
+  --white-color: #FFFFFF; /* White */
+  --dark-blue: #01257D; /* Intense navy blue */
+  --electric-blue: #00FFFF; /* Electric blue */
+  --cardinal-green: #0C1A1A; /* Cardinal green */
+  --light-teal: #6ACFC7; /* Light teal */
+}
+body { font-family: 'Segoe UI', sans-serif; background-color: var(--secondary-color); }
+.hero { background: var(--secondary-color); padding: 100px 0; text-align: center; }
+.btn-primary, .btn-success { background-color: var(--primary-color); border-color: var(--primary-color); }
+.btn-primary:hover, .btn-success:hover { background-color: #0056b3; border-color: #004f9a; }
+.features i { font-size: 2rem; margin-bottom: 10px; color: var(--primary-color); }
+footer { background-color: var(--primary-color); color: white; }
+footer a { color: white; text-decoration: underline; }
+.hero h1 {
+font-size: 2.8rem;
+line-height: 1.3;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--secondary-color); /* Light blue */
+}
+
+.hero {
+  background: var(--secondary-color); /* Light blue */
+  padding: 100px 0;
+  text-align: center;
+}
+
+.btn-primary, .btn-success {
+  background-color: var(--primary-color); /* Bright blue */
+  border-color: var(--primary-color); /* Bright blue */
+}
+
+.btn-primary:hover, .btn-success:hover {
+  background-color: var(--dark-blue); /* Dark navy blue */
+  border-color: var(--dark-blue); /* Dark navy blue */
+}
+
+.features i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--primary-color); /* Bright blue */
+}
+
+footer {
+  background-color: var(--primary-color); /* Bright blue */
+  color: var(--white-color); /* White */
+}
+
+footer a {
+  color: var(--white-color); /* White */
+  text-decoration: underline;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+
+.hero p.lead {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.features h5, .features p {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+.features h5, .features p {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+/*feature seccion*/
+.text-primary-color {
+  color: var(--primary-color);
+}
+
+.text-dark-blue {
+  color: var(--dark-blue);
+}
+
+/*QA*/
+.accordion-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 171, 228, 0.3);
+}
+
+/*hero*/
+.hero h1, .hero p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--electric-blue);
+  border-color: var(--electric-blue);
+}
+
+/* Floating chatbot button */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-button:hover {
+  background-color: #0056b3;
+}
+.highlight-text {
+  background: linear-gradient(90deg, var(--primary-color), var(--electric-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+/*footer*/
+footer a:hover {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+
+/* Chatbot window */
+.chatbot-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-width: 90%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  height: 400px;
+  animation: fadeIn 0.3s ease-out;
+}
+/*Logos Section*/
+.grayscale-hover {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.grayscale-hover:hover {
+  filter: grayscale(0%);
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Chatbot header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Chat content */
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333;
+}
+
+.chat-content div {
+  margin-bottom: 10px;
+}
+
+.chat-content .user {
+  text-align: right;
+  font-weight: bold;
+}
+
+.chat-content .ai {
+  text-align: left;
+  color: #007BFF;
+}
+
+/* Input field */
+#chat-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#chat-input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+/* Fade-in animation for chatbot */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  background-color: #e0f7fa;
+  color: #333;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.user-message .bubble {
+  background-color: #c8e6c9;
+  border-bottom-right-radius: 0;
+  align-self: flex-end;
+}
+
+.ai-message .bubble {
+  background-color: #eeeeee;
+  border-bottom-left-radius: 0;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #888;
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+}
+/* Typing animation */
+.typing-dots {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  background-color: #888;
+  border-radius: 50%;
+  animation: blink 1.4s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/*efecto boton hero button*/
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #00c6ff, #007bff);
+  transform: scale(1.05); /* Agranda un poco el tamaño del botón al hacer hover */
+}
+
+

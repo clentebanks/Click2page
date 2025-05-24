@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click2Page – Connect Google Sheets to Your Website</title>
+    <meta name="description"
+      content="Click2Page is a Bootstrap web template that connects to Google Sheets in one click. Instantly create a CRM to edit and manage your website content with zero coding.">
+    <meta name="keywords"
+      content="Click2Page, Google Sheets website, no-code template, Bootstrap editable site, CRM website template, one-click sheet integration, easy content management">
+    <meta name="author" content="PIMATECNO">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title"
+      content="Click2Page – One-Click Editable Web Template Using Google Sheets">
+    <meta property="og:description"
+      content="Create a connected Google Sheet in one click to manage your website like a CRM. Perfect for non-coders and business owners.">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Click2Page">
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:title"
+      content="Click2Page – Editable Website Template with Google Sheets">
+    <meta name="twitter:description"
+      content="Edit your website with ease using a connected Google Sheet. One-click CRM-style control.">
+    <meta name="twitter:image"
+      content="https://yourdomain.com/twitter-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourhandle">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/Imagen2.png" type="image/x-icon">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com">
+
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet">
     <link
@@ -12,292 +45,192 @@
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>Document</title>
-  <style>
-  /* Floating chatbot button */
-.chatbot-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007BFF;
-  border-radius: 50%;
-  padding: 15px;
-  cursor: pointer;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
+    <link rel="stylesheet" href="styles_chatbot.css">
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section
+      class="hero position-relative text-white d-flex align-items-center justify-content-center"
+      style="background: url('assets/laptop-2620118_1280.jpg') center center/cover no-repeat; min-height: 100vh;">
+      <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)); z-index: 1;"></div>
+      <div
+        class="container position-relative d-flex justify-content-center align-items-center h-100"
+        style="z-index: 2; text-align: center;">
+        <div class="px-3">
+          <h1 id="heroTitle" class="display-4 display-md-2 fw-bold mb-4"
+            style="font-size: 3.5rem;" data-i18n="heroTitle">
+            Click2Page <span
+              class="highlight-text">ChatBot</span>
+          </h1>
+          <p id="heroSubtitle" class="lead mb-4" style="font-size: 1.3rem;"
+            data-i18n="heroSubtitle">
+            Interact with ChatBot
+          </p>
+          <a id="btnStart" href="#faqTittle"
+            class="btn btn-primary btn-lg px-5 py-3 mb-3"
+            style="font-size: 1.25rem;" data-i18n="btnStart">FAQ</a>
+        </div>
+      </div>
+    </section>
 
-.chatbot-button:hover {
-  background-color: #0056b3;
-}
-.highlight-text {
-  background: linear-gradient(90deg, var(--primary-color), var(--electric-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-}
-/*footer*/
-footer a:hover {
-  color: #4da6ff;
-  text-decoration: underline;
-}
+    <!-- FAQ Section -->
+    <section class="py-5 position-relative" data-aos="fade-up"
+      style="background: linear-gradient(135deg, #e0f4ff, #f8faff);">
+      <div class="container">
+        <h2 id="faqTittle"
+          class="text-center mb-3 fw-bold text-primary display-6">🙋‍♂️
+          Frequently Asked Questions</h2>
+        <p id="faqDescription" class="text-center text-muted mb-5 fs-5">Got
+          doubts? We've got you covered — no jargon, no fluff.</p>
 
-/* Chatbot window */
-.chatbot-window {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 320px;
-  max-width: 90%;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  height: 400px;
-  animation: fadeIn 0.3s ease-out;
-}
-/*Logos Section*/
-.grayscale-hover {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-.grayscale-hover:hover {
-  filter: grayscale(0%);
-}
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
+        <div class="accordion accordion-flush" id="faqAccordion">
+          <!-- FAQ Item 1 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq1heading">
+              <button class="accordion-button fw-semibold" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq1"
+                aria-expanded="true" aria-controls="faq1">
+                <i class="fa-solid fa-code me-2 text-primary"></i>Do I need to know how to code?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show"
+              aria-labelledby="faq1heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Not at all! Just fill out a Google Sheet and
+                <strong>Click2Page</strong> automatically builds your site. No
+                coding, no hassle.
+              </div>
+            </div>
+          </div>
 
-.timestamp {
-  font-size: 0.75rem;
-  color: #888;
-  display: block;
-  margin-top: 4px;
-  text-align: right;
-}
+          <!-- FAQ Item 2 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq2heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                aria-expanded="false" aria-controls="faq2">
+                <i class="fa-solid fa-table me-2 text-primary"></i> How do I
+                create my Google Sheet?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse"
+              aria-labelledby="faq2heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Just click the <strong>"Generate Sheet"</strong> button and
+                we’ll automatically create a pre-filled sheet with all your
+                editable content. You can start editing right away.
+              </div>
+            </div>
+          </div>
 
-/*Testimonials Section*/
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-.fade-in.delay-1 {
-  animation-delay: 0.2s;
-}
-.fade-in.delay-2 {
-  animation-delay: 0.4s;
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+          <!-- FAQ Item 3 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq3heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                aria-expanded="false" aria-controls="faq3">
+                <i class="fa-solid fa-link me-2 text-primary"></i> How does the
+                sheet connect to my site?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse"
+              aria-labelledby="faq3heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                You don’t need to set anything up. Click2Page links your sheet
+                in the background. Every time you save changes, your site
+                updates instantly.
+              </div>
+            </div>
+          </div>
 
+          <!-- FAQ Item 4 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq4heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
+                aria-expanded="false" aria-controls="faq4">
+                <i
+                  class="fa-solid fa-wand-magic-sparkles me-2 text-primary"></i>
+                What can I edit from the sheet?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse"
+              aria-labelledby="faq4heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                You can update text, images, colors, links, buttons and more —
+                all from the Google Sheet interface, no coding required.
+              </div>
+            </div>
+          </div>
 
-/* Chatbot header */
-.chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  font-weight: bold;
-}
+          <!-- FAQ Item 5 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq5heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq5"
+                aria-expanded="false" aria-controls="faq5">
+                <i class="fa-solid fa-rotate me-2 text-primary"></i> How do
+                updates work?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse"
+              aria-labelledby="faq5heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Whenever you make changes to your Google Sheet, simply refresh
+                the page to see the updated content. Your edits are applied
+                instantly—just hit refresh!.
+              </div>
+            </div>
+          </div>
 
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
+          <!-- FAQ Item 6 -->
+          <div class="accordion-item border rounded mb-3 shadow-sm">
+            <h2 class="accordion-header" id="faq6heading">
+              <button class="accordion-button collapsed fw-semibold"
+                type="button" data-bs-toggle="collapse" data-bs-target="#faq6"
+                aria-expanded="false" aria-controls="faq6">
+                <i class="fa-solid fa-user-group me-2 text-primary"></i> Can I
+                collaborate with others or back up my content?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse"
+              aria-labelledby="faq6heading" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-6 text-secondary">
+                Yes! Since your content lives in Google Sheets, you can easily
+                share it with your team and make backups using Google Drive. All
+                changes are auto-saved and versioned.
+              </div>
+            </div>
+          </div>
+          <!-- Smart Assistant FAQ -->
+          <div class="text-center mt-5">
+            <div class="border rounded-4 p-4 bg-white shadow-sm d-inline-block">
+              <p id="botquestion" class="fw-semibold text-dark mb-2 fs-5"><i
+                  class="fa-regular fa-comments me-2"></i>Still have
+                questions?</p>
+              <p id="bottext" class="text-muted mb-3">Ask our smart assistant — it's always
+                ready to help!</p>
+              <a href="#chatbot-area" onclick="openChat()"
+                class="btn btn-primary px-4 rounded-pill">
+                <i class="fa-solid fa-robot me-2"></i><span id="botopen">Chat Now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* Chat content */
-.chat-content {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  font-size: 14px;
-  color: #333;
-}
+      <!-- Chatbot Area -->
+      <div id="chatbot-area"
+        style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        <!-- Floating Chatbot Button -->
+        <div id="chatbot-button"
+          class="chatbot-button btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+          style="width: 60px; height: 60px; cursor: pointer;">
+          <i class="fa-solid fa-robot fa-lg text-white"></i>
+        </div>
 
-.chat-content div {
-  margin-bottom: 10px;
-}
-
-.chat-content .user {
-  text-align: right;
-  font-weight: bold;
-}
-
-.chat-content .ai {
-  text-align: left;
-  color: #007BFF;
-}
-
-/* Input field */
-#chat-input {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-top: 1px solid #eee;
-  font-size: 14px;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-#chat-input:focus {
-  outline: none;
-  border-color: #007BFF;
-}
-
-/* Fade-in animation for chatbot */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.chat-message {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 8px 0;
-}
-
-.user-message {
-  align-items: flex-end;
-}
-
-.bubble {
-  max-width: 75%;
-  padding: 10px 14px;
-  border-radius: 20px;
-  font-size: 15px;
-  line-height: 1.4;
-  background-color: #e0f7fa;
-  color: #333;
-  position: relative;
-  word-wrap: break-word;
-}
-
-.user-message .bubble {
-  background-color: #c8e6c9;
-  border-bottom-right-radius: 0;
-  align-self: flex-end;
-}
-
-.ai-message .bubble {
-  background-color: #eeeeee;
-  border-bottom-left-radius: 0;
-}
-
-.timestamp {
-  font-size: 0.7rem;
-  color: #888;
-  margin-top: 2px;
-  text-align: right;
-}
-
-/* Typing animation */
-.typing-dots {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-.typing-dots span {
-  width: 6px;
-  height: 6px;
-  background-color: #888;
-  border-radius: 50%;
-  animation: blink 1.4s infinite ease-in-out both;
-}
-
-.typing-dots span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing-dots span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes blink {
-  0%, 80%, 100% {
-    transform: scale(0);
-    opacity: 0.3;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-/*efecto boton*/
-.btn-primary {
-  background: linear-gradient(90deg, #007bff, #00c6ff);
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(90deg, #00c6ff, #007bff);
-  transform: scale(1.05); /* Agranda un poco el tamaño del botón al hacer hover */
-}
-
-
-/* Hover effects for language switcher */
-#lang-en:hover, #lang-es:hover {
-  background-color: #f0f8ff; /* Light blue background on hover */
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Soft shadow for EN */
-}
-
-#lang-es:hover {
-  background-color: #f8d7da; /* Light red background on hover */
-  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3); /* Soft shadow for ES */
-}
-
-/* Enlarge effect */
-#lang-en:hover, #lang-es:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon on hover */
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem !important;
-  }
-  .navbar-brand img {
-    max-width: 120px;
-  }
-}
-  </style>
-</head>
-<body>
- 
-<!-- Chatbot Window -->
+        <!-- Chatbot Window -->
         <div id="chatbot-window" class="chatbot-window shadow"
           style="display: none; width: 320px; background: white; border-radius: 12px; overflow: hidden; flex-direction: column;">
           <div
@@ -314,116 +247,64 @@ footer a:hover {
             placeholder="Ask something..." onkeyup="checkInput(event)" />
         </div>
       </div>
-       <script
+
+      <!-- Footer -->
+      <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+          <!-- Brand Line -->
+          <h5 class="mb-3 fw-bold">
+            <span style="color: #4da6ff;">Click2Page</span> — Built for Real
+            People
+          </h5>
+
+          <!-- Social Icons -->
+          <div class="mb-4">
+            <a href="#" class="text-white me-3"><i
+                class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-white me-3"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+          </div>
+
+          <!-- Navigation Links -->
+          <p class="mb-3">
+            <a href="#" class="text-white text-decoration-none me-3">Privacy</a>
+            <a href="#" class="text-white text-decoration-none me-3">Contact</a>
+            <a href="#examples"
+              class="text-white text-decoration-none">Templates</a>
+          </p>
+
+          <!-- Newsletter Signup -->
+          <form class="d-flex justify-content-center mb-4"
+            style="max-width: 400px; margin: auto;">
+            <input type="email" class="form-control me-2"
+              placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <p class="small mb-0">© 2025 Click2Page. Made with ❤️ for small
+            business owners, freelancers, and dreamers.</p>
+          <p class="small mb-0">Made by <strong>PIMATECNO</strong></p>
+        </div>
+      </footer>
+
+      <script
         src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <!-- AOS JS -->
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+      <script src="scripts_chatbot.js"></script>
+      <script>
+  AOS.init({
+    easing: 'ease-in-out-sine',
+    duration: 1000, // Duración de la animación
+    once: true // Para que la animación solo ocurra una vez
+  });
+</script>
 
-       <script>
-
-    const faq = [
-  { q: /what.*templates/i, a: "Click2Page offers responsive HTML, CSS, Bootstrap, and JavaScript templates optimized for landing pages, portfolios, and small business websites." },
-  { q: /customize.*templates?/i, a: "Yes! All templates are fully editable using the integrated Google Sheet or by editing the HTML/CSS directly." },
-  { q: /how.*one.?click.*work/i, a: "Just click the integration button to automatically generate a linked Google Sheet that controls your website content." },
-  { q: /need.*google.*account/i, a: "Yes, a Google account is needed to create and edit your site's content from the sheet." },
-  { q: /edit.*content.*sheet/i, a: "You can modify text, images, buttons, colors, and even full sections like testimonials or pricing—all from the sheet." },
-  { q: /collaborat.*team/i, a: "Yes, you can share the sheet and work with others in real-time. Everyone sees updates instantly." },
-  { q: /download.*template/i, a: "Absolutely! You can download any template in a ZIP file to host or modify it as you wish." },
-  { q: /need.*coding.*custom/i, a: "No coding is needed if you use the Google Sheet integration. But advanced users can edit the code too." },
-  { q: /need.*help|support/i, a: "No worries! I'm here to help. Just ask a question, and I’ll guide you through setting things up." },
-  { q: /non.*tech|beginner|no.*code/i, a: "Yes! Click2Page is made for non-tech users who want a professional site with zero coding." }
-];
-
-const chatbotArea = document.getElementById('chatbot-area');
-const chatbotWindow = document.getElementById('chatbot-window');
-const chatbotButton = document.getElementById('chatbot-button');
-let isOpen = false;
-let timeout;
-
-// Hover (desktop)
-chatbotArea.addEventListener('mouseenter', () => {
-  clearTimeout(timeout);
-  chatbotWindow.style.display = 'flex';
-  isOpen = true;
-});
-
-chatbotArea.addEventListener('mouseleave', () => {
-  timeout = setTimeout(() => {
-    chatbotWindow.style.display = 'none';
-    isOpen = false;
-  }, 500);
-});
-
-// Touch (mobile)
-chatbotButton.addEventListener('touchstart', (e) => {
-  e.preventDefault();
-  isOpen = !isOpen;
-  chatbotWindow.style.display = isOpen ? 'flex' : 'none';
-});
-
-// "Chat Now" external button trigger
-function openChat() {
-  chatbotWindow.style.display = 'flex';
-  chatbotWindow.scrollIntoView({ behavior: 'smooth' });
-  isOpen = true;
-}
-
-// Close button
-function closeChat() {
-  chatbotWindow.style.display = 'none';
-  isOpen = false;
-}
-
-// Handle input and match questions
-function checkInput(event) {
-  if (event.key === 'Enter' && event.target.value.trim() !== '') {
-    sendChatMessage(event.target.value.trim());
-  }
-}
-function sendChatMessage(message) {
-  const chatContent = document.getElementById('chatbot-content');
-  const now = new Date();
-  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-  // User bubble
-  chatContent.innerHTML += `
-    <div class="chat-message user-message">
-      <div class="bubble">${escapeHTML(message)}</div>
-      <small class="timestamp">${time}</small>
-    </div>`;
-  chatContent.scrollTop = chatContent.scrollHeight;
-
-  // Typing animation bubble
-  const typingEl = document.createElement("div");
-  typingEl.className = "chat-message ai-message";
-  typingEl.innerHTML = `
-    <div class="bubble typing-dots">
-      <span></span><span></span><span></span>
-    </div>`;
-  chatContent.appendChild(typingEl);
-  chatContent.scrollTop = chatContent.scrollHeight;
-
-  const match = faq.find(f => f.q.test(message));
-  const reply = match ? match.a : "🤖 I'm not sure about that yet, but you can ask me about templates, setup, or editing tips!";
-
-  setTimeout(() => {
-    typingEl.remove();
-    const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-    // AI reply bubble
-    chatContent.innerHTML += `
-      <div class="chat-message ai-message">
-        <div class="bubble">${reply}</div>
-        <small class="timestamp">${replyTime}</small>
-      </div>`;
-    document.getElementById('chat-input').value = '';
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }, 1000);
-}
-
-  </script>
-</body>
-</html>
+    </body>
+  </html>
